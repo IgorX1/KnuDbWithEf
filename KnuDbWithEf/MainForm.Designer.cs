@@ -1,6 +1,6 @@
 ﻿namespace KnuDbWithEf
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.numOfCathedraLabel = new System.Windows.Forms.Label();
             this.changePhotoBtn = new System.Windows.Forms.Button();
@@ -939,7 +939,7 @@
             this.buttonPanel.Size = new System.Drawing.Size(138, 659);
             this.buttonPanel.TabIndex = 5;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -949,8 +949,8 @@
             this.Controls.Add(this.statsTab);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.buttonPanel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainForm";
+            this.Text = "База даних КНУ";
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
             this.empGroupBox.ResumeLayout(false);
             this.empGroupBox.PerformLayout();
