@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KNUDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATHEDRA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="DEPARTMENT_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DEGREE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YEAR_GOT" Type="int" />
+          <Property Name="NAME_D" Type="int" />
+        </EntityType>
+        <EntityType Name="DEGREELIST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="D_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="D_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADRESS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RATING" Type="tinyint" />
+          <Property Name="NAME_E" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="int" />
+          <Property Name="DEPARTMENT" Type="int" />
+          <Property Name="CATHEDRA" Type="int" />
+          <Property Name="DEGREE" Type="int" />
+          <Property Name="PHOTO" Type="int" />
+        </EntityType>
+        <EntityType Name="PHOTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IMAGEDATA" Type="varbinary(max)" />
+          <Property Name="NAME_IM" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOGIN" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="STATUS" Type="int" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CATHEDRA_TO_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CATHEDRA" Type="Self.CATHEDRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATHEDRA">
+              <PropertyRef Name="DEPARTMENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEGREE_DLIST">
+          <End Role="DEGREELIST" Type="Self.DEGREELIST" Multiplicity="0..1" />
+          <End Role="DEGREE" Type="Self.DEGREE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEGREELIST">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEGREE">
+              <PropertyRef Name="NAME_D" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_CATHEDRA">
+          <End Role="CATHEDRA" Type="Self.CATHEDRA" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATHEDRA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="CATHEDRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_DEGREE">
+          <End Role="DEGREE" Type="Self.DEGREE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEGREE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="DEGREE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="DEPARTMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_EMAIL">
+          <End Role="EMAIL" Type="Self.EMAIL" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMAIL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_PHOTO">
+          <End Role="PHOTO" Type="Self.PHOTO" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHOTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="PHOTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_STATUS">
+          <End Role="STATUS" Type="Self.STATUS" Multiplicity="0..1" />
+          <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KNUDBModelStoreContainer">
+          <EntitySet Name="CATHEDRA" EntityType="Self.CATHEDRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEGREE" EntityType="Self.DEGREE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEGREELIST" EntityType="Self.DEGREELIST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMAIL" EntityType="Self.EMAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHOTO" EntityType="Self.PHOTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CATHEDRA_TO_DEPARTMENT" Association="Self.FK_CATHEDRA_TO_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="CATHEDRA" EntitySet="CATHEDRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEGREE_DLIST" Association="Self.FK_DEGREE_DLIST">
+            <End Role="DEGREELIST" EntitySet="DEGREELIST" />
+            <End Role="DEGREE" EntitySet="DEGREE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_CATHEDRA" Association="Self.FK_EMPLOYEE_CATHEDRA">
+            <End Role="CATHEDRA" EntitySet="CATHEDRA" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_DEGREE" Association="Self.FK_EMPLOYEE_DEGREE">
+            <End Role="DEGREE" EntitySet="DEGREE" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_DEPARTMENT" Association="Self.FK_EMPLOYEE_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_EMAIL" Association="Self.FK_EMPLOYEE_EMAIL">
+            <End Role="EMAIL" EntitySet="EMAIL" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_PHOTO" Association="Self.FK_EMPLOYEE_PHOTO">
+            <End Role="PHOTO" EntitySet="PHOTO" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_STATUS" Association="Self.FK_USERS_STATUS">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KNUDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATHEDRA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DEPARTMENT_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK_CATHEDRA_TO_DEPARTMENT" FromRole="CATHEDRA" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_CATHEDRA" FromRole="CATHEDRA" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="DEGREE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YEAR_GOT" Type="Int32" />
+          <Property Name="NAME_D" Type="Int32" />
+          <NavigationProperty Name="DEGREELIST" Relationship="Self.FK_DEGREE_DLIST" FromRole="DEGREE" ToRole="DEGREELIST" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_DEGREE" FromRole="DEGREE" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="DEGREELIST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="D_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DEGREE" Relationship="Self.FK_DEGREE_DLIST" FromRole="DEGREELIST" ToRole="DEGREE" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="D_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CATHEDRA" Relationship="Self.FK_CATHEDRA_TO_DEPARTMENT" FromRole="DEPARTMENT" ToRole="CATHEDRA" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_DEPARTMENT" FromRole="DEPARTMENT" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="EMAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_EMAIL" FromRole="EMAIL" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RATING" Type="Byte" />
+          <Property Name="NAME_E" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="Int32" />
+          <Property Name="DEPARTMENT" Type="Int32" />
+          <Property Name="CATHEDRA" Type="Int32" />
+          <Property Name="DEGREE" Type="Int32" />
+          <Property Name="PHOTO" Type="Int32" />
+          <NavigationProperty Name="CATHEDRA1" Relationship="Self.FK_EMPLOYEE_CATHEDRA" FromRole="EMPLOYEE" ToRole="CATHEDRA" />
+          <NavigationProperty Name="DEGREE1" Relationship="Self.FK_EMPLOYEE_DEGREE" FromRole="EMPLOYEE" ToRole="DEGREE" />
+          <NavigationProperty Name="DEPARTMENT1" Relationship="Self.FK_EMPLOYEE_DEPARTMENT" FromRole="EMPLOYEE" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="EMAIL1" Relationship="Self.FK_EMPLOYEE_EMAIL" FromRole="EMPLOYEE" ToRole="EMAIL" />
+          <NavigationProperty Name="PHOTO1" Relationship="Self.FK_EMPLOYEE_PHOTO" FromRole="EMPLOYEE" ToRole="PHOTO" />
+        </EntityType>
+        <EntityType Name="PHOTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IMAGEDATA" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NAME_IM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_PHOTO" FromRole="PHOTO" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK_USERS_STATUS" FromRole="STATUS" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOGIN" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="STATUS" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="STATUS1" Relationship="Self.FK_USERS_STATUS" FromRole="USERS" ToRole="STATUS" />
+        </EntityType>
+        <Association Name="FK_CATHEDRA_TO_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CATHEDRA" Type="Self.CATHEDRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CATHEDRA">
+              <PropertyRef Name="DEPARTMENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_CATHEDRA">
+          <End Role="CATHEDRA" Type="Self.CATHEDRA" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATHEDRA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="CATHEDRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEGREE_DLIST">
+          <End Role="DEGREELIST" Type="Self.DEGREELIST" Multiplicity="0..1" />
+          <End Role="DEGREE" Type="Self.DEGREE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEGREELIST">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEGREE">
+              <PropertyRef Name="NAME_D" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_DEGREE">
+          <End Role="DEGREE" Type="Self.DEGREE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEGREE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="DEGREE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_DEPARTMENT">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="DEPARTMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_EMAIL">
+          <End Role="EMAIL" Type="Self.EMAIL" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMAIL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_PHOTO">
+          <End Role="PHOTO" Type="Self.PHOTO" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHOTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="PHOTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_STATUS">
+          <End Role="STATUS" Type="Self.STATUS" Multiplicity="0..1" />
+          <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KNUDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATHEDRA" EntityType="Self.CATHEDRA" />
+          <EntitySet Name="DEGREE" EntityType="Self.DEGREE" />
+          <EntitySet Name="DEGREELIST" EntityType="Self.DEGREELIST" />
+          <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" />
+          <EntitySet Name="EMAIL" EntityType="Self.EMAIL" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="PHOTO" EntityType="Self.PHOTO" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" />
+          <AssociationSet Name="FK_CATHEDRA_TO_DEPARTMENT" Association="Self.FK_CATHEDRA_TO_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="CATHEDRA" EntitySet="CATHEDRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_CATHEDRA" Association="Self.FK_EMPLOYEE_CATHEDRA">
+            <End Role="CATHEDRA" EntitySet="CATHEDRA" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEGREE_DLIST" Association="Self.FK_DEGREE_DLIST">
+            <End Role="DEGREELIST" EntitySet="DEGREELIST" />
+            <End Role="DEGREE" EntitySet="DEGREE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_DEGREE" Association="Self.FK_EMPLOYEE_DEGREE">
+            <End Role="DEGREE" EntitySet="DEGREE" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_DEPARTMENT" Association="Self.FK_EMPLOYEE_DEPARTMENT">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_EMAIL" Association="Self.FK_EMPLOYEE_EMAIL">
+            <End Role="EMAIL" EntitySet="EMAIL" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_PHOTO" Association="Self.FK_EMPLOYEE_PHOTO">
+            <End Role="PHOTO" EntitySet="PHOTO" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_STATUS" Association="Self.FK_USERS_STATUS">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KNUDBModelStoreContainer" CdmEntityContainer="KNUDBEntities">
+          <EntitySetMapping Name="CATHEDRA">
+            <EntityTypeMapping TypeName="KNUDBModel.CATHEDRA">
+              <MappingFragment StoreEntitySet="CATHEDRA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+                <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEGREE">
+            <EntityTypeMapping TypeName="KNUDBModel.DEGREE">
+              <MappingFragment StoreEntitySet="DEGREE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="YEAR_GOT" ColumnName="YEAR_GOT" />
+                <ScalarProperty Name="NAME_D" ColumnName="NAME_D" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEGREELIST">
+            <EntityTypeMapping TypeName="KNUDBModel.DEGREELIST">
+              <MappingFragment StoreEntitySet="DEGREELIST">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="D_NAME" ColumnName="D_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTMENT">
+            <EntityTypeMapping TypeName="KNUDBModel.DEPARTMENT">
+              <MappingFragment StoreEntitySet="DEPARTMENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="D_NAME" ColumnName="D_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMAIL">
+            <EntityTypeMapping TypeName="KNUDBModel.EMAIL">
+              <MappingFragment StoreEntitySet="EMAIL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ADRESS" ColumnName="ADRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEE">
+            <EntityTypeMapping TypeName="KNUDBModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="NAME_E" ColumnName="NAME_E" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+                <ScalarProperty Name="CATHEDRA" ColumnName="CATHEDRA" />
+                <ScalarProperty Name="DEGREE" ColumnName="DEGREE" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHOTO">
+            <EntityTypeMapping TypeName="KNUDBModel.PHOTO">
+              <MappingFragment StoreEntitySet="PHOTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IMAGEDATA" ColumnName="IMAGEDATA" />
+                <ScalarProperty Name="NAME_IM" ColumnName="NAME_IM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS">
+            <EntityTypeMapping TypeName="KNUDBModel.STATUS">
+              <MappingFragment StoreEntitySet="STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="KNUDBModel.USERS">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

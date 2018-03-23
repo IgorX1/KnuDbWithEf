@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5900b2449024422a9496d86c102a8b48" Name="Diagram1">
+        <EntityTypeShape EntityType="KNUDBModel.CATHEDRA" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.DEGREE" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.DEGREELIST" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.DEPARTMENT" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.EMAIL" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.EMPLOYEE" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.PHOTO" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.STATUS" Width="1.5" PointX="5.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNUDBModel.USERS" Width="1.5" PointX="8" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="KNUDBModel.FK_CATHEDRA_TO_DEPARTMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="KNUDBModel.FK_EMPLOYEE_CATHEDRA" ManuallyRouted="false" />
+        <AssociationConnector Association="KNUDBModel.FK_DEGREE_DLIST" ManuallyRouted="false" />
+        <AssociationConnector Association="KNUDBModel.FK_EMPLOYEE_DEGREE" ManuallyRouted="false" />
+        <AssociationConnector Association="KNUDBModel.FK_EMPLOYEE_DEPARTMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="KNUDBModel.FK_EMPLOYEE_EMAIL" ManuallyRouted="false" />
+        <AssociationConnector Association="KNUDBModel.FK_EMPLOYEE_PHOTO" ManuallyRouted="false" />
+        <AssociationConnector Association="KNUDBModel.FK_USERS_STATUS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
