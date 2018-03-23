@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnuDbWithEf", "KnuDbWithEf\KnuDbWithEf.csproj", "{60C46979-68CE-4225-927A-4432159CD69E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeEf", "EmployeeEf\EmployeeEf.csproj", "{F9ACDCED-D6E7-496D-A6E0-4DEE0BFFD49D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{60C46979-68CE-4225-927A-4432159CD69E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60C46979-68CE-4225-927A-4432159CD69E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60C46979-68CE-4225-927A-4432159CD69E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9ACDCED-D6E7-496D-A6E0-4DEE0BFFD49D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9ACDCED-D6E7-496D-A6E0-4DEE0BFFD49D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9ACDCED-D6E7-496D-A6E0-4DEE0BFFD49D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9ACDCED-D6E7-496D-A6E0-4DEE0BFFD49D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
