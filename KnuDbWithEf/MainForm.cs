@@ -80,5 +80,20 @@ namespace KnuDbWithEf
             alterEmployee.Enabled = true;
             finishShowBtn.Enabled = true;
         }
+
+        private void finishShowBtn_Click(object sender, EventArgs e)
+        {
+            nameTextBox.Text = String.Empty;
+            emailTextBox.Text = String.Empty;
+            departmentTextBox.Text = String.Empty;
+            degreeTextBox.Text = String.Empty;
+            cathedraTextBox.Text = String.Empty;
+            ratingTextBox.Text = String.Empty;
+            yearTextBox.Text = String.Empty;
+            employeePhotoPB.Image = Properties.Resources.unknown_person_icon_Image_from;
+            alterEmployee.Enabled = false;
+            changePhotoBtn.Enabled = false;
+            finishShowBtn.Enabled = false;
+        }
     }
 }

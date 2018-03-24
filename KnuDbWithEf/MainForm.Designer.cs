@@ -284,6 +284,7 @@
             this.finishShowBtn.TabIndex = 14;
             this.finishShowBtn.Text = "Закінчити перегляд";
             this.finishShowBtn.UseVisualStyleBackColor = true;
+            this.finishShowBtn.Click += new System.EventHandler(this.finishShowBtn_Click);
             // 
             // ratingTextBox
             // 
