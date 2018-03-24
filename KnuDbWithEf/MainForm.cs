@@ -26,6 +26,7 @@ namespace KnuDbWithEf
             //load the DB info to the context
             ctx = new KNUDBEntities();
             ctx.CATHEDRA.Load();
+            ctx.DEPARTMENT.Load();
             ctx.DEGREE.Load();
             ctx.DEGREELIST.Load();
             ctx.EMAIL.Load();
@@ -47,9 +48,19 @@ namespace KnuDbWithEf
                             degree = i.DEGREE1.NAME_D,
                             year = i.DEGREE1.YEAR_GOT
                         }).ToList();
+            var cath_query = (from i in ctx.CATHEDRA
+                              select new
+                              {
+                                  name = i.C_NAME,
+                                  dep = i.DEPARTMENT.D_NAME
+                              }).ToList();
             eMPLOYEEBindingSource.DataSource = query;
+            cATHEDRABindingSource.DataSource = cath_query;
+            dEPARTMENTBindingSource.DataSource = ctx.DEPARTMENT.Local.ToBindingList();
+            dEGREELISTBindingSource.DataSource = ctx.DEGREELIST.Local.ToBindingList();
             mainDataGridView.DataSource = eMPLOYEEBindingSource;
-            //mainDataGridView.Columns[0].Visible = false;
+            dataGridView3.DataSource = cATHEDRABindingSource;
+
         }
 
         private void mainDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -94,6 +105,22 @@ namespace KnuDbWithEf
             alterEmployee.Enabled = false;
             changePhotoBtn.Enabled = false;
             finishShowBtn.Enabled = false;
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            EmployeeAddingForm addEmployeeForm = new EmployeeAddingForm(mainDataGridView, ctx);
+            addEmployeeForm.Show();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dEPARTMENTBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

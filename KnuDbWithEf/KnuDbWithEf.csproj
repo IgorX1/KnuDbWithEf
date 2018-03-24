@@ -54,6 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeAdding.cs" />
+    <Compile Include="EmployeeAddingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeAddingForm.Designer.cs">
+      <DependentUpon>EmployeeAddingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeVisualization.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -63,6 +70,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EmployeeAddingForm.resx">
+      <DependentUpon>EmployeeAddingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +87,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EmployeeEf.CATHEDRA.datasource" />
+    <None Include="Properties\DataSources\EmployeeEf.DEGREELIST.datasource" />
+    <None Include="Properties\DataSources\EmployeeEf.DEPARTMENT.datasource" />
     <None Include="Properties\DataSources\EmployeeEf.EMPLOYEE.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
