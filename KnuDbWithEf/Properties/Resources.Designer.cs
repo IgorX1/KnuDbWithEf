@@ -63,9 +63,69 @@ namespace KnuDbWithEf.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addingFormDefaultPersonImage {
+            get {
+                object obj = ResourceManager.GetObject("addingFormDefaultPersonImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap google_cloud_search_512dp {
+            get {
+                object obj = ResourceManager.GetObject("google_cloud_search_512dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_4 {
+            get {
+                object obj = ResourceManager.GetObject("image_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap notebook_texture2458 {
+            get {
+                object obj = ResourceManager.GetObject("notebook_texture2458", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap textures_notebook_paper_design_background_0 {
+            get {
+                object obj = ResourceManager.GetObject("textures_notebook_paper_design_background_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap unknown_person_icon_Image_from {
             get {
                 object obj = ResourceManager.GetObject("unknown_person_icon_Image_from", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Zerode_Plump_Search {
+            get {
+                object obj = ResourceManager.GetObject("Zerode-Plump-Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

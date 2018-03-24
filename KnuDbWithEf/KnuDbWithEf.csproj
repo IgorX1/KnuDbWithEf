@@ -101,7 +101,31 @@
     <None Include="Resources\unknown_person_icon_Image_from.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\addingFormDefaultPersonImage.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook_texture2458.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textures-notebook-paper-design-background-0.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\unknown-person-icon-Image-from.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zerode-Plump-Search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zerode-Plump-Search1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\google_cloud_search_512dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
