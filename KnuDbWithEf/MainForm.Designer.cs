@@ -88,9 +88,6 @@
             this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mainTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.YEAR_GOT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.D_NAME1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainDataGridView = new System.Windows.Forms.DataGridView();
             this.empTab = new System.Windows.Forms.TabPage();
             this.statsTab = new System.Windows.Forms.TabControl();
@@ -674,39 +671,11 @@
             // 
             this.mainTableBindingSource.DataMember = "MainTable";
             // 
-            // YEAR_GOT
-            // 
-            this.YEAR_GOT.DataPropertyName = "YEAR_GOT";
-            this.YEAR_GOT.HeaderText = "Рік отримання";
-            this.YEAR_GOT.Name = "YEAR_GOT";
-            this.YEAR_GOT.ReadOnly = true;
-            // 
-            // D_NAME1
-            // 
-            this.D_NAME1.DataPropertyName = "DEGREE";
-            this.D_NAME1.HeaderText = "Звання";
-            this.D_NAME1.Name = "D_NAME1";
-            this.D_NAME1.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 30;
-            // 
             // mainDataGridView
             // 
             this.mainDataGridView.AllowUserToAddRows = false;
             this.mainDataGridView.AllowUserToDeleteRows = false;
-            this.mainDataGridView.AutoGenerateColumns = false;
             this.mainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mainDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.D_NAME1,
-            this.YEAR_GOT});
-            this.mainDataGridView.DataSource = this.mainTableBindingSource;
             this.mainDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainDataGridView.Location = new System.Drawing.Point(3, 3);
             this.mainDataGridView.Name = "mainDataGridView";
@@ -951,6 +920,7 @@
             this.Controls.Add(this.buttonPanel);
             this.Name = "MainForm";
             this.Text = "База даних КНУ";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
             this.empGroupBox.ResumeLayout(false);
             this.empGroupBox.PerformLayout();
@@ -1043,9 +1013,6 @@
         private System.Windows.Forms.BindingSource dEPARTMENTBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource mainTableBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YEAR_GOT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn D_NAME1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridView mainDataGridView;
         private System.Windows.Forms.TabPage empTab;
         private System.Windows.Forms.TabControl statsTab;
