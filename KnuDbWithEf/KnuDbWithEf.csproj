@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeVisualization.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EmployeeEf.EMPLOYEE.datasource" />
@@ -94,6 +96,12 @@
       <Project>{f9acdced-d6e7-496d-a6e0-4dee0bffd49d}</Project>
       <Name>EmployeeEf</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unknown_person_icon_Image_from.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unknown-person-icon-Image-from.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

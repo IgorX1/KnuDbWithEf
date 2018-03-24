@@ -15,6 +15,7 @@ namespace KnuDbWithEf
     public partial class MainForm : Form
     {
         private KNUDBEntities ctx;
+        private string indexOfEmployeeVisualization;
         public MainForm()
         {
             InitializeComponent();
@@ -49,6 +50,35 @@ namespace KnuDbWithEf
             eMPLOYEEBindingSource.DataSource = query;
             mainDataGridView.DataSource = eMPLOYEEBindingSource;
             //mainDataGridView.Columns[0].Visible = false;
+        }
+
+        private void mainDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EmployeeVisualization visualization = new EmployeeVisualization();
+            try
+            {
+                indexOfEmployeeVisualization = mainDataGridView[0, e.RowIndex].Value.ToString();
+                visualization.GetPersonalInfo(indexOfEmployeeVisualization,
+                                          ctx,
+                                          employeePhotoPB,
+                                          nameTextBox,
+                                          emailTextBox,
+                                          departmentTextBox,
+                                          cathedraTextBox,
+                                          degreeTextBox,
+                                          ratingTextBox,
+                                          yearTextBox);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            delBtn.Enabled = true;
+            changePhotoBtn.Enabled = true;
+            alterEmployee.Enabled = true;
+            finishShowBtn.Enabled = true;
         }
     }
 }
