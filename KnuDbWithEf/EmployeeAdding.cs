@@ -13,6 +13,13 @@ namespace KnuDbWithEf
     {
         DataGridView dgv;
         EmployeeEf.KNUDBEntities ctx;
+        EmployeeAddingForm parentForm;
+
+        public EmployeeAdding(EmployeeEf.KNUDBEntities ctx, EmployeeAddingForm eaf)
+        {
+            this.ctx = ctx;
+            parentForm = eaf;
+        }
 
         public EmployeeAdding(EmployeeEf.KNUDBEntities ctx)
         {
@@ -147,6 +154,11 @@ namespace KnuDbWithEf
         {
             if (!Email.Contains("@"))
                 throw new Exception("Неправильний формат електронної пошти!");
+            var res = (from i in ctx.EMAIL
+                       where i.ADRESS == Email
+                       select i).Any();
+            if (res)
+                throw new Exception("Така пошта вже існує");
         }
 
         //перевірка чи є така кафедра на цьому факультеті
@@ -224,6 +236,7 @@ namespace KnuDbWithEf
             {
                 ctx.SaveChanges();
                 MessageBox.Show("Вітання! Співробітник доданий до БД успішно");
+                parentForm.Close();
             }
             catch (Exception)
             {

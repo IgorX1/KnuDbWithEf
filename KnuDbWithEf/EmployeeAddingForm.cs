@@ -47,7 +47,7 @@ namespace KnuDbWithEf
 
         private void saveNewBtn_Click(object sender, EventArgs e)
         {
-            EmployeeAdding employeeAdding = new EmployeeAdding(ctx);
+            EmployeeAdding employeeAdding = new EmployeeAdding(ctx, this);
             employeeAdding.AddEmployeeButtonPressed(nameTextBox2,
                                                departmentComboBox2,
                                                cathedraComboBox2,
@@ -58,6 +58,7 @@ namespace KnuDbWithEf
                                                employeePhotoPB,
                                                dgv
                                                );
+            dgv.DataSource = ctx.EMPLOYEE.Local.ToList();
         }
 
         private void EmployeeAddingForm_Load(object sender, EventArgs e)

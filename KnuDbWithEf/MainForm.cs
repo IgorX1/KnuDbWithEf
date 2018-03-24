@@ -94,6 +94,54 @@ namespace KnuDbWithEf
 
         private void finishShowBtn_Click(object sender, EventArgs e)
         {
+            ReleasePropertiesOfControls();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            EmployeeAddingForm addEmployeeForm = new EmployeeAddingForm(mainDataGridView, ctx);
+            addEmployeeForm.Show();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void dEPARTMENTBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+            if (statsTab.SelectedTab != empTab)
+            {
+                MessageBox.Show("Видаляйте працівника лише при активній вкладці \"Працівники\"");
+                return;
+            }
+
+            int id = (int)mainDataGridView[0, mainDataGridView.CurrentRow.Index].Value;
+            EMPLOYEE eMPLOYEE = (from i in ctx.EMPLOYEE
+                                 where i.ID == id
+                                 select i).First();
+
+            if (MessageBox.Show("Ви впевнені?", "Attention!", MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                ctx.PHOTO.Remove(eMPLOYEE.PHOTO1);
+                ctx.DEGREE.Remove(eMPLOYEE.DEGREE1);
+                ctx.EMAIL.Remove(eMPLOYEE.EMAIL1);
+                ctx.EMPLOYEE.Remove(eMPLOYEE);
+                eMPLOYEEBindingSource.RemoveCurrent();
+                ctx.SaveChanges();
+                ReleasePropertiesOfControls();
+                MessageBox.Show("Вітання! Видалення успішне!");
+                mainDataGridView.DataSource = ctx.EMPLOYEE.Local.ToList();
+            }
+            
+        }
+
+        private void ReleasePropertiesOfControls()
+        {
             nameTextBox.Text = String.Empty;
             emailTextBox.Text = String.Empty;
             departmentTextBox.Text = String.Empty;
@@ -107,20 +155,9 @@ namespace KnuDbWithEf
             finishShowBtn.Enabled = false;
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            EmployeeAddingForm addEmployeeForm = new EmployeeAddingForm(mainDataGridView, ctx);
-            addEmployeeForm.Show();
-        }
-
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dEPARTMENTBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
+            ctx.Dispose();
         }
     }
 }

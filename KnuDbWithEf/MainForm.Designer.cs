@@ -831,6 +831,7 @@
             this.delBtn.TabIndex = 3;
             this.delBtn.Text = "Видалення обраного";
             this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // allEmployeesBtn
             // 
@@ -961,6 +962,7 @@
             this.Controls.Add(this.buttonPanel);
             this.Name = "MainForm";
             this.Text = "База даних КНУ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.empGroupBox.ResumeLayout(false);
             this.empGroupBox.PerformLayout();
