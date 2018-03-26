@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlterEmployee.cs" />
+    <Compile Include="ConstantValues.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeAdding.cs" />
     <Compile Include="EmployeeAddingForm.cs">

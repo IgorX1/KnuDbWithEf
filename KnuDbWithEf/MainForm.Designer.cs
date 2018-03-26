@@ -156,6 +156,7 @@
             this.changePhotoBtn.TabIndex = 18;
             this.changePhotoBtn.Text = "Змінити фото";
             this.changePhotoBtn.UseVisualStyleBackColor = true;
+            this.changePhotoBtn.Click += new System.EventHandler(this.changePhotoBtn_Click);
             // 
             // label1
             // 
@@ -264,6 +265,7 @@
             this.alterEmployee.TabIndex = 15;
             this.alterEmployee.Text = "Внести зміни\r\n";
             this.alterEmployee.UseVisualStyleBackColor = true;
+            this.alterEmployee.Click += new System.EventHandler(this.alterEmployee_Click);
             // 
             // finishShowBtn
             // 

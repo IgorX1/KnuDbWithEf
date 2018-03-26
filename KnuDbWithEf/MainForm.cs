@@ -186,5 +186,61 @@ namespace KnuDbWithEf
             mainDataGridView.DataSource = ctx.EMPLOYEE.Local.ToBindingList();
             ReleasePropertiesOfSearchControls();
         }
+
+        private void alterEmployee_Click(object sender, EventArgs e)
+        {
+            int row = mainDataGridView.CurrentCell.RowIndex;
+            string ID = mainDataGridView["ID", row].Value.ToString();
+
+            AlterEmployee alterEmployee = new AlterEmployee(nameTextBox,
+                                                            departmentTextBox,
+                                                            cathedraTextBox,
+                                                            emailTextBox,
+                                                            degreeTextBox,
+                                                            ratingTextBox,
+                                                            yearTextBox,
+                                                            indexOfEmployeeVisualization,
+                                                            mainDataGridView, 
+                                                            ctx);
+            bool r = false ;
+            alterEmployee.Change(ref r);
+            if(r)
+                ctx.SaveChanges();
+            else
+            {
+                var lst = ctx.ChangeTracker.Entries().Where(x => x.State != EntityState.Unchanged).ToList();
+                foreach(var entry in lst)
+                {
+                    switch (entry.State)
+                    {
+                        case EntityState.Modified:
+                            entry.CurrentValues.SetValues(entry.OriginalValues);
+                            entry.State = EntityState.Unchanged;
+                            break;
+                        case EntityState.Added:
+                            entry.State = EntityState.Detached;
+                            break;
+                        case EntityState.Deleted:
+                            entry.State = EntityState.Unchanged;
+                            break;
+                    }
+                }
+            }
+                
+
+        }
+
+        private void changePhotoBtn_Click(object sender, EventArgs e)
+        {
+            AlterEmployee alterEmployee = new AlterEmployee(indexOfEmployeeVisualization, ctx);
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                employeePhotoPB.Image = Image.FromFile(ofd.FileName);
+            }
+
+            alterEmployee.ChangePhoto(employeePhotoPB);
+        }
     }
 }
