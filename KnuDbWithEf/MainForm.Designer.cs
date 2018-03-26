@@ -632,6 +632,7 @@
             this.addDepBtn.TabIndex = 2;
             this.addDepBtn.Text = "Додати";
             this.addDepBtn.UseVisualStyleBackColor = true;
+            this.addDepBtn.Click += new System.EventHandler(this.addDepBtn_Click);
             // 
             // dataGridView2
             // 

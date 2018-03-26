@@ -53,7 +53,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCathedraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCathedraForm.Designer.cs">
+      <DependentUpon>AddCathedraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddDegreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDegreeForm.Designer.cs">
+      <DependentUpon>AddDegreeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddDepartmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDepartmentForm.Designer.cs">
+      <DependentUpon>AddDepartmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlterEmployee.cs" />
+    <Compile Include="AuthorisationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuthorisationForm.Designer.cs">
+      <DependentUpon>AuthorisationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConstantValues.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeAdding.cs" />
@@ -73,6 +97,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchEmployee.cs" />
+    <EmbeddedResource Include="AddCathedraForm.resx">
+      <DependentUpon>AddCathedraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDegreeForm.resx">
+      <DependentUpon>AddDegreeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDepartmentForm.resx">
+      <DependentUpon>AddDepartmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuthorisationForm.resx">
+      <DependentUpon>AuthorisationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeAddingForm.resx">
       <DependentUpon>EmployeeAddingForm.cs</DependentUpon>
     </EmbeddedResource>

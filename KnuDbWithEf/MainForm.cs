@@ -262,5 +262,10 @@ namespace KnuDbWithEf
         {
             System.Diagnostics.Process.Start("http://www.univ.kiev.ua/ua/");
         }
+
+        private void addDepBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
