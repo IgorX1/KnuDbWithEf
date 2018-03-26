@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.numOfCathedraLabel = new System.Windows.Forms.Label();
             this.changePhotoBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,7 +55,6 @@
             this.departmentLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.employeePhotoPB = new System.Windows.Forms.PictureBox();
             this.searchEmailLabel = new System.Windows.Forms.Label();
             this.searchCathedraLabel = new System.Windows.Forms.Label();
             this.searchDepartmentTextBox = new System.Windows.Forms.TextBox();
@@ -64,28 +62,14 @@
             this.searchNameTextBox = new System.Windows.Forms.TextBox();
             this.searchNameLabel = new System.Windows.Forms.Label();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.searchCathedraTextBox = new System.Windows.Forms.TextBox();
-            this.numOfDegreeLabel = new System.Windows.Forms.Label();
             this.aDRESSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.bigIconPB = new System.Windows.Forms.PictureBox();
-            this.numOfDepLabel = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.numOfEmpLabel = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.depTab = new System.Windows.Forms.TabPage();
             this.DelDepBtn = new System.Windows.Forms.Button();
             this.addDepBtn = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cATHEDRADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eMPLOYEEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mainDataGridView = new System.Windows.Forms.DataGridView();
             this.empTab = new System.Windows.Forms.TabPage();
@@ -100,10 +84,6 @@
             this.DelDegreeBtn = new System.Windows.Forms.Button();
             this.AddDegreeBtn = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEGREEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEGREELISTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.інфораціяПроКНУToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,16 +92,32 @@
             this.delBtn = new System.Windows.Forms.Button();
             this.allEmployeesBtn = new System.Windows.Forms.Button();
             this.buttonPanel = new System.Windows.Forms.Panel();
+            this.employeePhotoPB = new System.Windows.Forms.PictureBox();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.dNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cATHEDRADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eMPLOYEEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEGREEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEGREELISTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.numOfDegreeLabel = new System.Windows.Forms.Label();
+            this.numOfCathedraLabel = new System.Windows.Forms.Label();
+            this.numOfDepLabel = new System.Windows.Forms.Label();
+            this.numOfEmpLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.bigIconPB = new System.Windows.Forms.PictureBox();
             this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cATHEDRABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).BeginInit();
             this.searchGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bigIconPB)).BeginInit();
-            this.tabPage1.SuspendLayout();
             this.depTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
             this.empTab.SuspendLayout();
@@ -130,22 +126,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEGREELISTBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.buttonPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEGREELISTBindingSource)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bigIconPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cATHEDRABindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // numOfCathedraLabel
-            // 
-            this.numOfCathedraLabel.AutoSize = true;
-            this.numOfCathedraLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numOfCathedraLabel.Location = new System.Drawing.Point(245, 130);
-            this.numOfCathedraLabel.Name = "numOfCathedraLabel";
-            this.numOfCathedraLabel.Size = new System.Drawing.Size(13, 29);
-            this.numOfCathedraLabel.TabIndex = 6;
-            this.numOfCathedraLabel.Text = "\r\n";
             // 
             // changePhotoBtn
             // 
@@ -374,16 +364,6 @@
             this.nameLabel.TabIndex = 2;
             this.nameLabel.Text = "П.І.Б:";
             // 
-            // employeePhotoPB
-            // 
-            this.employeePhotoPB.Image = ((System.Drawing.Image)(resources.GetObject("employeePhotoPB.Image")));
-            this.employeePhotoPB.Location = new System.Drawing.Point(19, 33);
-            this.employeePhotoPB.Name = "employeePhotoPB";
-            this.employeePhotoPB.Size = new System.Drawing.Size(132, 158);
-            this.employeePhotoPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.employeePhotoPB.TabIndex = 1;
-            this.employeePhotoPB.TabStop = false;
-            // 
             // searchEmailLabel
             // 
             this.searchEmailLabel.AutoSize = true;
@@ -458,32 +438,12 @@
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Пошук співробітника за критеріями";
             // 
-            // SearchButton
-            // 
-            this.SearchButton.Image = global::KnuDbWithEf.Properties.Resources.google_cloud_search_512dp;
-            this.SearchButton.Location = new System.Drawing.Point(7, 21);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(120, 88);
-            this.SearchButton.TabIndex = 16;
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
             // searchCathedraTextBox
             // 
             this.searchCathedraTextBox.Location = new System.Drawing.Point(271, 79);
             this.searchCathedraTextBox.Name = "searchCathedraTextBox";
             this.searchCathedraTextBox.Size = new System.Drawing.Size(446, 22);
             this.searchCathedraTextBox.TabIndex = 9;
-            // 
-            // numOfDegreeLabel
-            // 
-            this.numOfDegreeLabel.AutoSize = true;
-            this.numOfDegreeLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numOfDegreeLabel.Location = new System.Drawing.Point(230, 163);
-            this.numOfDegreeLabel.Name = "numOfDegreeLabel";
-            this.numOfDegreeLabel.Size = new System.Drawing.Size(13, 29);
-            this.numOfDegreeLabel.TabIndex = 7;
-            this.numOfDegreeLabel.Text = "\r\n";
             // 
             // aDRESSDataGridViewTextBoxColumn
             // 
@@ -497,98 +457,6 @@
             // toolTip1
             // 
             this.toolTip1.ToolTipTitle = "Підказка";
-            // 
-            // bigIconPB
-            // 
-            this.bigIconPB.Image = ((System.Drawing.Image)(resources.GetObject("bigIconPB.Image")));
-            this.bigIconPB.Location = new System.Drawing.Point(3, 3);
-            this.bigIconPB.Name = "bigIconPB";
-            this.bigIconPB.Size = new System.Drawing.Size(132, 114);
-            this.bigIconPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bigIconPB.TabIndex = 0;
-            this.bigIconPB.TabStop = false;
-            this.toolTip1.SetToolTip(this.bigIconPB, "Клацніть, щоб перейти на сайт КНУ");
-            this.bigIconPB.Click += new System.EventHandler(this.bigIconPB_Click);
-            // 
-            // numOfDepLabel
-            // 
-            this.numOfDepLabel.AutoSize = true;
-            this.numOfDepLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numOfDepLabel.Location = new System.Drawing.Point(293, 98);
-            this.numOfDepLabel.Name = "numOfDepLabel";
-            this.numOfDepLabel.Size = new System.Drawing.Size(13, 29);
-            this.numOfDepLabel.TabIndex = 5;
-            this.numOfDepLabel.Text = "\r\n";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackgroundImage = global::KnuDbWithEf.Properties.Resources.textures_notebook_paper_design_background_0;
-            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPage1.Controls.Add(this.numOfDegreeLabel);
-            this.tabPage1.Controls.Add(this.numOfCathedraLabel);
-            this.tabPage1.Controls.Add(this.numOfDepLabel);
-            this.tabPage1.Controls.Add(this.numOfEmpLabel);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(659, 505);
-            this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "Статистика";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // numOfEmpLabel
-            // 
-            this.numOfEmpLabel.AutoSize = true;
-            this.numOfEmpLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numOfEmpLabel.Location = new System.Drawing.Point(278, 66);
-            this.numOfEmpLabel.Name = "numOfEmpLabel";
-            this.numOfEmpLabel.Size = new System.Drawing.Size(13, 29);
-            this.numOfEmpLabel.TabIndex = 4;
-            this.numOfEmpLabel.Text = "\r\n";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(65, 163);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 58);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Кількість звань:\r\n\r\n";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(66, 130);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(182, 58);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Кількість кафедр:\r\n\r\n";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(66, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(226, 29);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Кількість факультетів:\r\n";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(66, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 29);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Кількість працівників:\r\n";
             // 
             // richTextBox1
             // 
@@ -623,6 +491,7 @@
             this.DelDepBtn.TabIndex = 3;
             this.DelDepBtn.Text = "Видалити";
             this.DelDepBtn.UseVisualStyleBackColor = true;
+            this.DelDepBtn.Click += new System.EventHandler(this.DelDepBtn_Click);
             // 
             // addDepBtn
             // 
@@ -653,34 +522,6 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(653, 469);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // dNAMEDataGridViewTextBoxColumn
-            // 
-            this.dNAMEDataGridViewTextBoxColumn.DataPropertyName = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn.HeaderText = "Факультет";
-            this.dNAMEDataGridViewTextBoxColumn.Name = "dNAMEDataGridViewTextBoxColumn";
-            this.dNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dNAMEDataGridViewTextBoxColumn.Width = 610;
-            // 
-            // cATHEDRADataGridViewTextBoxColumn
-            // 
-            this.cATHEDRADataGridViewTextBoxColumn.DataPropertyName = "CATHEDRA";
-            this.cATHEDRADataGridViewTextBoxColumn.HeaderText = "CATHEDRA";
-            this.cATHEDRADataGridViewTextBoxColumn.Name = "cATHEDRADataGridViewTextBoxColumn";
-            this.cATHEDRADataGridViewTextBoxColumn.ReadOnly = true;
-            this.cATHEDRADataGridViewTextBoxColumn.Visible = false;
-            // 
-            // eMPLOYEEDataGridViewTextBoxColumn
-            // 
-            this.eMPLOYEEDataGridViewTextBoxColumn.DataPropertyName = "EMPLOYEE";
-            this.eMPLOYEEDataGridViewTextBoxColumn.HeaderText = "EMPLOYEE";
-            this.eMPLOYEEDataGridViewTextBoxColumn.Name = "eMPLOYEEDataGridViewTextBoxColumn";
-            this.eMPLOYEEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.eMPLOYEEDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dEPARTMENTBindingSource
-            // 
-            this.dEPARTMENTBindingSource.DataSource = typeof(EmployeeEf.DEPARTMENT);
             // 
             // dataGridView1
             // 
@@ -844,28 +685,6 @@
             this.dataGridView5.Size = new System.Drawing.Size(653, 469);
             this.dataGridView5.TabIndex = 0;
             // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            // 
-            // dNAMEDataGridViewTextBoxColumn1
-            // 
-            this.dNAMEDataGridViewTextBoxColumn1.DataPropertyName = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn1.HeaderText = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn1.Name = "dNAMEDataGridViewTextBoxColumn1";
-            // 
-            // dEGREEDataGridViewTextBoxColumn
-            // 
-            this.dEGREEDataGridViewTextBoxColumn.DataPropertyName = "DEGREE";
-            this.dEGREEDataGridViewTextBoxColumn.HeaderText = "DEGREE";
-            this.dEGREEDataGridViewTextBoxColumn.Name = "dEGREEDataGridViewTextBoxColumn";
-            // 
-            // dEGREELISTBindingSource
-            // 
-            this.dEGREELISTBindingSource.DataSource = typeof(EmployeeEf.DEGREELIST);
-            // 
             // інфораціяПроКНУToolStripMenuItem
             // 
             this.інфораціяПроКНУToolStripMenuItem.Name = "інфораціяПроКНУToolStripMenuItem";
@@ -940,6 +759,188 @@
             this.buttonPanel.Size = new System.Drawing.Size(138, 659);
             this.buttonPanel.TabIndex = 5;
             // 
+            // employeePhotoPB
+            // 
+            this.employeePhotoPB.Image = ((System.Drawing.Image)(resources.GetObject("employeePhotoPB.Image")));
+            this.employeePhotoPB.Location = new System.Drawing.Point(19, 33);
+            this.employeePhotoPB.Name = "employeePhotoPB";
+            this.employeePhotoPB.Size = new System.Drawing.Size(132, 158);
+            this.employeePhotoPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.employeePhotoPB.TabIndex = 1;
+            this.employeePhotoPB.TabStop = false;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Image = global::KnuDbWithEf.Properties.Resources.google_cloud_search_512dp;
+            this.SearchButton.Location = new System.Drawing.Point(7, 21);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(120, 88);
+            this.SearchButton.TabIndex = 16;
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // dNAMEDataGridViewTextBoxColumn
+            // 
+            this.dNAMEDataGridViewTextBoxColumn.DataPropertyName = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn.HeaderText = "Факультет";
+            this.dNAMEDataGridViewTextBoxColumn.Name = "dNAMEDataGridViewTextBoxColumn";
+            this.dNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dNAMEDataGridViewTextBoxColumn.Width = 610;
+            // 
+            // cATHEDRADataGridViewTextBoxColumn
+            // 
+            this.cATHEDRADataGridViewTextBoxColumn.DataPropertyName = "CATHEDRA";
+            this.cATHEDRADataGridViewTextBoxColumn.HeaderText = "CATHEDRA";
+            this.cATHEDRADataGridViewTextBoxColumn.Name = "cATHEDRADataGridViewTextBoxColumn";
+            this.cATHEDRADataGridViewTextBoxColumn.ReadOnly = true;
+            this.cATHEDRADataGridViewTextBoxColumn.Visible = false;
+            // 
+            // eMPLOYEEDataGridViewTextBoxColumn
+            // 
+            this.eMPLOYEEDataGridViewTextBoxColumn.DataPropertyName = "EMPLOYEE";
+            this.eMPLOYEEDataGridViewTextBoxColumn.HeaderText = "EMPLOYEE";
+            this.eMPLOYEEDataGridViewTextBoxColumn.Name = "eMPLOYEEDataGridViewTextBoxColumn";
+            this.eMPLOYEEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.eMPLOYEEDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dEPARTMENTBindingSource
+            // 
+            this.dEPARTMENTBindingSource.DataSource = typeof(EmployeeEf.DEPARTMENT);
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            // 
+            // dNAMEDataGridViewTextBoxColumn1
+            // 
+            this.dNAMEDataGridViewTextBoxColumn1.DataPropertyName = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn1.HeaderText = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn1.Name = "dNAMEDataGridViewTextBoxColumn1";
+            // 
+            // dEGREEDataGridViewTextBoxColumn
+            // 
+            this.dEGREEDataGridViewTextBoxColumn.DataPropertyName = "DEGREE";
+            this.dEGREEDataGridViewTextBoxColumn.HeaderText = "DEGREE";
+            this.dEGREEDataGridViewTextBoxColumn.Name = "dEGREEDataGridViewTextBoxColumn";
+            // 
+            // dEGREELISTBindingSource
+            // 
+            this.dEGREELISTBindingSource.DataSource = typeof(EmployeeEf.DEGREELIST);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackgroundImage = global::KnuDbWithEf.Properties.Resources.textures_notebook_paper_design_background_0;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.numOfDegreeLabel);
+            this.tabPage1.Controls.Add(this.numOfCathedraLabel);
+            this.tabPage1.Controls.Add(this.numOfDepLabel);
+            this.tabPage1.Controls.Add(this.numOfEmpLabel);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(659, 505);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "Статистика";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // numOfDegreeLabel
+            // 
+            this.numOfDegreeLabel.AutoSize = true;
+            this.numOfDegreeLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numOfDegreeLabel.Location = new System.Drawing.Point(230, 163);
+            this.numOfDegreeLabel.Name = "numOfDegreeLabel";
+            this.numOfDegreeLabel.Size = new System.Drawing.Size(13, 29);
+            this.numOfDegreeLabel.TabIndex = 7;
+            this.numOfDegreeLabel.Text = "\r\n";
+            // 
+            // numOfCathedraLabel
+            // 
+            this.numOfCathedraLabel.AutoSize = true;
+            this.numOfCathedraLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numOfCathedraLabel.Location = new System.Drawing.Point(245, 130);
+            this.numOfCathedraLabel.Name = "numOfCathedraLabel";
+            this.numOfCathedraLabel.Size = new System.Drawing.Size(13, 29);
+            this.numOfCathedraLabel.TabIndex = 6;
+            this.numOfCathedraLabel.Text = "\r\n";
+            // 
+            // numOfDepLabel
+            // 
+            this.numOfDepLabel.AutoSize = true;
+            this.numOfDepLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numOfDepLabel.Location = new System.Drawing.Point(293, 98);
+            this.numOfDepLabel.Name = "numOfDepLabel";
+            this.numOfDepLabel.Size = new System.Drawing.Size(13, 29);
+            this.numOfDepLabel.TabIndex = 5;
+            this.numOfDepLabel.Text = "\r\n";
+            // 
+            // numOfEmpLabel
+            // 
+            this.numOfEmpLabel.AutoSize = true;
+            this.numOfEmpLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numOfEmpLabel.Location = new System.Drawing.Point(278, 66);
+            this.numOfEmpLabel.Name = "numOfEmpLabel";
+            this.numOfEmpLabel.Size = new System.Drawing.Size(13, 29);
+            this.numOfEmpLabel.TabIndex = 4;
+            this.numOfEmpLabel.Text = "\r\n";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(65, 163);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(162, 58);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Кількість звань:\r\n\r\n";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(66, 130);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(182, 58);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Кількість кафедр:\r\n\r\n";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(66, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(226, 29);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Кількість факультетів:\r\n";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(66, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(224, 29);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Кількість працівників:\r\n";
+            // 
+            // bigIconPB
+            // 
+            this.bigIconPB.Image = ((System.Drawing.Image)(resources.GetObject("bigIconPB.Image")));
+            this.bigIconPB.Location = new System.Drawing.Point(3, 3);
+            this.bigIconPB.Name = "bigIconPB";
+            this.bigIconPB.Size = new System.Drawing.Size(132, 114);
+            this.bigIconPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bigIconPB.TabIndex = 0;
+            this.bigIconPB.TabStop = false;
+            this.toolTip1.SetToolTip(this.bigIconPB, "Клацніть, щоб перейти на сайт КНУ");
+            this.bigIconPB.Click += new System.EventHandler(this.bigIconPB_Click);
+            // 
             // eMPLOYEEBindingSource
             // 
             this.eMPLOYEEBindingSource.DataSource = typeof(EmployeeEf.EMPLOYEE);
@@ -964,15 +965,10 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.empGroupBox.ResumeLayout(false);
             this.empGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).EndInit();
             this.searchGroupBox.ResumeLayout(false);
             this.searchGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bigIconPB)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.depTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).EndInit();
             this.empTab.ResumeLayout(false);
@@ -981,10 +977,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEGREELISTBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.buttonPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEGREELISTBindingSource)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bigIconPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cATHEDRABindingSource)).EndInit();
             this.ResumeLayout(false);

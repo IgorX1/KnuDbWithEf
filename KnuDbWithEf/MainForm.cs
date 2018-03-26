@@ -265,7 +265,27 @@ namespace KnuDbWithEf
 
         private void addDepBtn_Click(object sender, EventArgs e)
         {
+            AddDepartmentForm addDepartmentForm = new AddDepartmentForm(dataGridView2, ctx);
+            addDepartmentForm.Show();
+        }
 
+        private void DelDepBtn_Click(object sender, EventArgs e)
+        {
+            string value = dataGridView2["dNAMEDataGridViewTextBoxColumn", dataGridView2.CurrentCell.RowIndex].Value.ToString();
+            try
+            {
+                DepartmentManager departmentManager = new DepartmentManager(ctx);
+                departmentManager.Delete(value);
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                return;
+            }
+
+            MessageBox.Show("Вітання! Факультет видалено!");
+            dataGridView2.DataSource = ctx.DEPARTMENT.Local.ToList();
         }
     }
 }

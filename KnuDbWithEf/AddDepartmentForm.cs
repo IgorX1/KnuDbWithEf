@@ -12,9 +12,33 @@ namespace KnuDbWithEf
 {
     public partial class AddDepartmentForm : Form
     {
-        public AddDepartmentForm()
+        DataGridView dataGrid;
+        EmployeeEf.KNUDBEntities ctx;
+        public AddDepartmentForm(DataGridView data, EmployeeEf.KNUDBEntities ctx)
         {
             InitializeComponent();
+            dataGrid = data;
+            this.ctx = ctx;
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            NametextBox.Text = String.Empty;
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            DepartmentManager departmentManager = new DepartmentManager(ctx);
+            try
+            {
+                departmentManager.Save(NametextBox);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                return;
+            }
+            dataGrid.DataSource = ctx.DEPARTMENT.Local.ToList();
         }
     }
 }

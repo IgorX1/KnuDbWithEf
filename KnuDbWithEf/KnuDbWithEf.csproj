@@ -79,6 +79,7 @@
       <DependentUpon>AuthorisationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConstantValues.cs" />
+    <Compile Include="DepartmentManager.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeAdding.cs" />
     <Compile Include="EmployeeAddingForm.cs">
