@@ -98,9 +98,6 @@
             this.cATHEDRADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eMPLOYEEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEGREEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dEGREELISTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.numOfDegreeLabel = new System.Windows.Forms.Label();
@@ -114,6 +111,9 @@
             this.bigIconPB = new System.Windows.Forms.PictureBox();
             this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cATHEDRABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.зберегтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empGroupBox.SuspendLayout();
             this.searchGroupBox.SuspendLayout();
             this.depTab.SuspendLayout();
@@ -572,6 +572,7 @@
             this.statsTab.SelectedIndex = 0;
             this.statsTab.Size = new System.Drawing.Size(667, 534);
             this.statsTab.TabIndex = 7;
+            this.statsTab.SelectedIndexChanged += new System.EventHandler(this.statsTab_SelectedIndexChanged);
             // 
             // cathedraTab
             // 
@@ -605,6 +606,7 @@
             this.delCathedraBtn.TabIndex = 6;
             this.delCathedraBtn.Text = "Видалити";
             this.delCathedraBtn.UseVisualStyleBackColor = true;
+            this.delCathedraBtn.Click += new System.EventHandler(this.delCathedraBtn_Click);
             // 
             // addCathedraBtn
             // 
@@ -614,6 +616,7 @@
             this.addCathedraBtn.TabIndex = 5;
             this.addCathedraBtn.Text = "Додати";
             this.addCathedraBtn.UseVisualStyleBackColor = true;
+            this.addCathedraBtn.Click += new System.EventHandler(this.addCathedraBtn_Click);
             // 
             // dataGridView3
             // 
@@ -624,6 +627,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView3.Size = new System.Drawing.Size(653, 469);
             this.dataGridView3.TabIndex = 0;
             // 
@@ -659,6 +663,7 @@
             this.DelDegreeBtn.TabIndex = 9;
             this.DelDegreeBtn.Text = "Видалити";
             this.DelDegreeBtn.UseVisualStyleBackColor = true;
+            this.DelDegreeBtn.Click += new System.EventHandler(this.DelDegreeBtn_Click);
             // 
             // AddDegreeBtn
             // 
@@ -668,6 +673,7 @@
             this.AddDegreeBtn.TabIndex = 8;
             this.AddDegreeBtn.Text = "Додати";
             this.AddDegreeBtn.UseVisualStyleBackColor = true;
+            this.AddDegreeBtn.Click += new System.EventHandler(this.AddDegreeBtn_Click);
             // 
             // dataGridView5
             // 
@@ -675,13 +681,12 @@
             this.dataGridView5.AutoGenerateColumns = false;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn1,
-            this.dNAMEDataGridViewTextBoxColumn1,
-            this.dEGREEDataGridViewTextBoxColumn});
+            this.dNAMEDataGridViewTextBoxColumn1});
             this.dataGridView5.DataSource = this.dEGREELISTBindingSource;
             this.dataGridView5.Location = new System.Drawing.Point(3, 33);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowTemplate.Height = 24;
+            this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView5.Size = new System.Drawing.Size(653, 469);
             this.dataGridView5.TabIndex = 0;
             // 
@@ -701,6 +706,8 @@
             // 
             // menuToolStripMenuItem
             // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.зберегтиToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.menuToolStripMenuItem.Text = "Меню";
@@ -806,24 +813,6 @@
             // dEPARTMENTBindingSource
             // 
             this.dEPARTMENTBindingSource.DataSource = typeof(EmployeeEf.DEPARTMENT);
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            // 
-            // dNAMEDataGridViewTextBoxColumn1
-            // 
-            this.dNAMEDataGridViewTextBoxColumn1.DataPropertyName = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn1.HeaderText = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn1.Name = "dNAMEDataGridViewTextBoxColumn1";
-            // 
-            // dEGREEDataGridViewTextBoxColumn
-            // 
-            this.dEGREEDataGridViewTextBoxColumn.DataPropertyName = "DEGREE";
-            this.dEGREEDataGridViewTextBoxColumn.HeaderText = "DEGREE";
-            this.dEGREEDataGridViewTextBoxColumn.Name = "dEGREEDataGridViewTextBoxColumn";
             // 
             // dEGREELISTBindingSource
             // 
@@ -949,6 +938,27 @@
             // 
             this.cATHEDRABindingSource.DataSource = typeof(EmployeeEf.CATHEDRA);
             // 
+            // dNAMEDataGridViewTextBoxColumn1
+            // 
+            this.dNAMEDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dNAMEDataGridViewTextBoxColumn1.DataPropertyName = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn1.HeaderText = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn1.Name = "dNAMEDataGridViewTextBoxColumn1";
+            // 
+            // зберегтиToolStripMenuItem
+            // 
+            this.зберегтиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xMLToolStripMenuItem});
+            this.зберегтиToolStripMenuItem.Name = "зберегтиToolStripMenuItem";
+            this.зберегтиToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.зберегтиToolStripMenuItem.Text = "Зберегти";
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.xMLToolStripMenuItem.Text = "XML";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1071,13 +1081,13 @@
         private System.Windows.Forms.Panel buttonPanel;
         private System.Windows.Forms.BindingSource dEPARTMENTBindingSource;
         private System.Windows.Forms.BindingSource cATHEDRABindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dNAMEDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dEGREEDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource dEGREELISTBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cATHEDRADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMPLOYEEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dNAMEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripMenuItem зберегтиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
     }
 }
 

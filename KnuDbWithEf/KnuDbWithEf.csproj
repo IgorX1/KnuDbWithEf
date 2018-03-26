@@ -78,6 +78,7 @@
     <Compile Include="AuthorisationForm.Designer.cs">
       <DependentUpon>AuthorisationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CathedraManager.cs" />
     <Compile Include="ConstantValues.cs" />
     <Compile Include="DepartmentManager.cs" />
     <Compile Include="Employee.cs" />

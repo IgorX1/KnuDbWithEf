@@ -62,7 +62,7 @@ namespace KnuDbWithEf
             return eMPLOYEEBindingSource;
         }
 
-        private BindingSource GetCathedraDGVBindingSource()
+        public BindingSource GetCathedraDGVBindingSource()
         {
             var cath_query = (from i in ctx.CATHEDRA
                               select new
@@ -286,6 +286,59 @@ namespace KnuDbWithEf
 
             MessageBox.Show("Вітання! Факультет видалено!");
             dataGridView2.DataSource = ctx.DEPARTMENT.Local.ToList();
+        }
+
+        private void statsTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabPage current = (sender as TabControl).SelectedTab;
+            if (current.Name == tabPage1.Name)
+            {
+                numOfEmpLabel.Text = ctx.EMPLOYEE.Count().ToString();
+                numOfDepLabel.Text = ctx.DEPARTMENT.Count().ToString();
+                numOfCathedraLabel.Text = ctx.CATHEDRA.Count().ToString();
+                numOfDegreeLabel.Text = ctx.DEGREELIST.Count().ToString();
+            }
+            if(current.Name != empTab.Name)
+            {
+                //як показник того, що заповнені всі поля(бо імя точно введено)
+                if(nameTextBox.Name!=String.Empty)
+                {
+                    ReleasePropertiesOfControls();
+                }
+            }
+        }
+
+        private void addCathedraBtn_Click(object sender, EventArgs e)
+        {
+            AddCathedraForm addCathedraForm = new AddCathedraForm(dataGridView3, ctx);
+            addCathedraForm.Show();
+        }
+
+        private void delCathedraBtn_Click(object sender, EventArgs e)
+        {
+            string value_cath = dataGridView3[0, dataGridView3.CurrentCell.RowIndex].Value.ToString();
+            string value_dep = dataGridView3[1, dataGridView3.CurrentCell.RowIndex].Value.ToString();
+            try
+            {
+                CathedraManager cathedraManager = new CathedraManager(ctx);
+                cathedraManager.Delete(value_cath, value_dep);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                return;
+            }
+            dataGridView3.DataSource = GetCathedraDGVBindingSource();
+        }
+
+        private void AddDegreeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DelDegreeBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
