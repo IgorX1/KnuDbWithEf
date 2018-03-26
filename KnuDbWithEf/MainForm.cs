@@ -80,11 +80,9 @@ namespace KnuDbWithEf
                                           ratingTextBox,
                                           yearTextBox);
             }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+            catch (ArgumentOutOfRangeException) { }
+               
+            
 
             delBtn.Enabled = true;
             changePhotoBtn.Enabled = true;
@@ -105,6 +103,18 @@ namespace KnuDbWithEf
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            statsTab.SelectedTab = empTab;
+            SearchEmployee searchEmployee = new SearchEmployee(searchNameTextBox,
+                                                                searchDepartmentTextBox,
+                                                                searchCathedraTextBox,
+                                                                searchEmailTextBox,
+                                                                searchDegreeTextBox,
+                                                                searchRatingTextBox,
+                                                                searchYearTextBox,
+                                                                mainDataGridView,
+                                                                ctx
+                                                                    );
+            searchEmployee.Search();
         }
 
         private void dEPARTMENTBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -155,9 +165,26 @@ namespace KnuDbWithEf
             finishShowBtn.Enabled = false;
         }
 
+        private void ReleasePropertiesOfSearchControls()
+        {
+            searchNameTextBox.Text = String.Empty;
+            searchRatingTextBox.Text = String.Empty;
+            searchYearTextBox.Text = String.Empty;
+            searchDegreeTextBox.Text = String.Empty;
+            searchCathedraTextBox.Text = String.Empty;
+            searchDepartmentTextBox.Text = String.Empty;
+            searchEmailTextBox.Text = String.Empty;
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             ctx.Dispose();
+        }
+
+        private void allEmployeesBtn_Click(object sender, EventArgs e)
+        {
+            mainDataGridView.DataSource = ctx.EMPLOYEE.Local.ToBindingList();
+            ReleasePropertiesOfSearchControls();
         }
     }
 }
