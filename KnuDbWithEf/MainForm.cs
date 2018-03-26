@@ -41,6 +41,27 @@ namespace KnuDbWithEf
             dEGREELISTBindingSource.DataSource = ctx.DEGREELIST.Local.ToBindingList();
             mainDataGridView.DataSource = GetMainDGVBindingSource();
             dataGridView3.DataSource = GetCathedraDGVBindingSource();
+            FixMainDgv();
+        }
+
+        public void FixMainDgv()
+        {
+            //this fynction is responsible for
+            //setting parameners of dgv to have an
+            //appropriate look
+            mainDataGridView.Columns[1].HeaderText = "Ім'я";
+            mainDataGridView.Columns[2].HeaderText = "Пошта";
+            mainDataGridView.Columns[3].HeaderText = "Факультет";
+            mainDataGridView.Columns[4].HeaderText = "Кафедра";
+            mainDataGridView.Columns[5].HeaderText = "Бал";
+            mainDataGridView.Columns[6].HeaderText = "Звання";
+            mainDataGridView.Columns[7].HeaderText = "Рік";
+
+            mainDataGridView.Columns[0].Visible = false;
+            mainDataGridView.Columns[1].Width = 205;
+            mainDataGridView.Columns[5].Width = 40;
+            mainDataGridView.Columns[6].Width = 60;
+            mainDataGridView.Columns[7].Width = 45;
 
         }
 
