@@ -183,7 +183,6 @@ namespace KnuDbWithEf
 
             success = true;
             MessageBox.Show("Вітання! Зміни успішні!");
-            //ctx.SaveChanges(); -- виніс у верхню функ
         }
 
     }

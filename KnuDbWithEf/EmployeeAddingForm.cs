@@ -58,7 +58,8 @@ namespace KnuDbWithEf
                                                employeePhotoPB,
                                                dgv
                                                );
-            dgv.DataSource = ctx.EMPLOYEE.Local.ToList();
+            MainForm mainForm = new MainForm();
+            dgv.DataSource = mainForm.GetMainDGVBindingSource();
         }
 
         private void EmployeeAddingForm_Load(object sender, EventArgs e)

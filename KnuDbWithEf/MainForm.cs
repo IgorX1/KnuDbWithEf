@@ -19,6 +19,7 @@ namespace KnuDbWithEf
         public MainForm()
         {
             InitializeComponent();
+            ctx = new KNUDBEntities();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -35,32 +36,42 @@ namespace KnuDbWithEf
             ctx.STATUS.Load();
             ctx.USERS.Load();
 
-            //fill the main gridview
+            
+            dEPARTMENTBindingSource.DataSource = ctx.DEPARTMENT.Local.ToBindingList();
+            dEGREELISTBindingSource.DataSource = ctx.DEGREELIST.Local.ToBindingList();
+            mainDataGridView.DataSource = GetMainDGVBindingSource();
+            dataGridView3.DataSource = GetCathedraDGVBindingSource();
+
+        }
+
+        public BindingSource GetMainDGVBindingSource()
+        {
             var query = (from i in ctx.EMPLOYEE
-                        select new
-                        {
-                            id = i.ID,
-                            name = i.NAME_E,
-                            mail = i.EMAIL1.ADRESS,
-                            department = i.DEPARTMENT1.D_NAME,
-                            cathedra = i.CATHEDRA1.C_NAME,
-                            rating = i.RATING,
-                            degree = i.DEGREE1.NAME_D,
-                            year = i.DEGREE1.YEAR_GOT
-                        }).ToList();
+                         select new
+                         {
+                             id = i.ID,
+                             name = i.NAME_E,
+                             mail = i.EMAIL1.ADRESS,
+                             department = i.DEPARTMENT1.D_NAME,
+                             cathedra = i.CATHEDRA1.C_NAME,
+                             rating = i.RATING,
+                             degree = i.DEGREE1.DEGREELIST.D_NAME,
+                             year = i.DEGREE1.YEAR_GOT
+                         }).ToList();
+            eMPLOYEEBindingSource.DataSource = query;
+            return eMPLOYEEBindingSource;
+        }
+
+        private BindingSource GetCathedraDGVBindingSource()
+        {
             var cath_query = (from i in ctx.CATHEDRA
                               select new
                               {
                                   name = i.C_NAME,
                                   dep = i.DEPARTMENT.D_NAME
                               }).ToList();
-            eMPLOYEEBindingSource.DataSource = query;
             cATHEDRABindingSource.DataSource = cath_query;
-            dEPARTMENTBindingSource.DataSource = ctx.DEPARTMENT.Local.ToBindingList();
-            dEGREELISTBindingSource.DataSource = ctx.DEGREELIST.Local.ToBindingList();
-            mainDataGridView.DataSource = eMPLOYEEBindingSource;
-            dataGridView3.DataSource = cATHEDRABindingSource;
-
+            return cATHEDRABindingSource;
         }
 
         private void mainDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -99,6 +110,7 @@ namespace KnuDbWithEf
         {
             EmployeeAddingForm addEmployeeForm = new EmployeeAddingForm(mainDataGridView, ctx);
             addEmployeeForm.Show();
+            mainDataGridView.DataSource = GetMainDGVBindingSource();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -145,7 +157,7 @@ namespace KnuDbWithEf
                 ctx.SaveChanges();
                 ReleasePropertiesOfControls();
                 MessageBox.Show("Вітання! Видалення успішне!");
-                mainDataGridView.DataSource = ctx.EMPLOYEE.Local.ToList();
+                mainDataGridView.DataSource = GetMainDGVBindingSource();
             }
             
         }
@@ -183,7 +195,7 @@ namespace KnuDbWithEf
 
         private void allEmployeesBtn_Click(object sender, EventArgs e)
         {
-            mainDataGridView.DataSource = ctx.EMPLOYEE.Local.ToBindingList();
+            mainDataGridView.DataSource = GetMainDGVBindingSource();
             ReleasePropertiesOfSearchControls();
         }
 
@@ -205,7 +217,10 @@ namespace KnuDbWithEf
             bool r = false ;
             alterEmployee.Change(ref r);
             if(r)
+            {
                 ctx.SaveChanges();
+                mainDataGridView.DataSource = GetMainDGVBindingSource();
+            }               
             else
             {
                 var lst = ctx.ChangeTracker.Entries().Where(x => x.State != EntityState.Unchanged).ToList();
@@ -241,6 +256,11 @@ namespace KnuDbWithEf
             }
 
             alterEmployee.ChangePhoto(employeePhotoPB);
+        }
+
+        private void bigIconPB_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.univ.kiev.ua/ua/");
         }
     }
 }

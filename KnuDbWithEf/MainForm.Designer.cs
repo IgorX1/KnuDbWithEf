@@ -508,6 +508,7 @@
             this.bigIconPB.TabIndex = 0;
             this.bigIconPB.TabStop = false;
             this.toolTip1.SetToolTip(this.bigIconPB, "Клацніть, щоб перейти на сайт КНУ");
+            this.bigIconPB.Click += new System.EventHandler(this.bigIconPB_Click);
             // 
             // numOfDepLabel
             // 
