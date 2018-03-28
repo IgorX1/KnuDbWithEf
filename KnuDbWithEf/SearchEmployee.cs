@@ -46,42 +46,53 @@ namespace KnuDbWithEf
                 return;
             }
 
-            var res = ctx.EMPLOYEE.Select(x => x);
+            var res = from i in ctx.EMPLOYEE
+                      select new
+                      {
+                          id = i.ID,
+                          name = i.NAME_E,
+                          mail = i.EMAIL1.ADRESS,
+                          department = i.DEPARTMENT1.D_NAME,
+                          cathedra = i.CATHEDRA1.C_NAME,
+                          rating = i.RATING,
+                          degree = i.DEGREE1.DEGREELIST.D_NAME,
+                          year = i.DEGREE1.YEAR_GOT
+                      };//ctx.EMPLOYEE.Select(x => x);
 
 
             if (Name != String.Empty)
             {
-                res = res.Where(x => x.NAME_E.StartsWith(Name)).Select(x => x);
+                res = res.Where(x => x.name.StartsWith(Name)).Select(x => x);
             }
 
             if (Department != String.Empty)
             {
-                res = res.Where(x => x.DEPARTMENT1.D_NAME.StartsWith(Department)).Select(x => x);
+                res = res.Where(x => x.department.StartsWith(Department)).Select(x => x);
             }
 
             if (Cathedra != String.Empty)
             {
-                res = res.Where(x => x.CATHEDRA1.C_NAME.StartsWith(Cathedra)).Select(x => x);
+                res = res.Where(x => x.cathedra.StartsWith(Cathedra)).Select(x => x);
             }
 
             if (Email != String.Empty)
             {
-                res = res.Where(x => x.EMAIL1.ADRESS.StartsWith(Email)).Select(x => x);
+                res = res.Where(x => x.mail.StartsWith(Email)).Select(x => x);
             }
 
             if (Rating != String.Empty)
             {
-                res = res.Where(x => x.RATING.ToString().StartsWith(Rating)).Select(x => x);
+                res = res.Where(x => x.rating.ToString().StartsWith(Rating)).Select(x => x);
             }
 
             if (Degree!=String.Empty)
             {
-                res = res.Where(x => x.DEGREE1.DEGREELIST.D_NAME.StartsWith(Degree)).Select(x => x);
+                res = res.Where(x => x.degree.StartsWith(Degree)).Select(x => x);
             }
 
             if (Year!=String.Empty)
             {
-                res = res.Where(x => x.DEGREE1.YEAR_GOT.ToString().StartsWith(Year)).Select(x => x);
+                res = res.Where(x => x.year.ToString().StartsWith(Year)).Select(x => x);
             }
 
             var bind_res = res.ToList();
