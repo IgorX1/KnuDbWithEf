@@ -42,9 +42,10 @@ namespace KnuDbWithEf
             mainDataGridView.DataSource = GetMainDGVBindingSource();
             dataGridView3.DataSource = GetCathedraDGVBindingSource();
             FixMainDgv();
+            FixCathedraDGV();
         }
 
-        public void FixMainDgv()
+        private void FixMainDgv()
         {
             //this fynction is responsible for
             //setting parameners of dgv to have an
@@ -62,7 +63,14 @@ namespace KnuDbWithEf
             mainDataGridView.Columns[5].Width = 40;
             mainDataGridView.Columns[6].Width = 60;
             mainDataGridView.Columns[7].Width = 45;
+        }
 
+        private void FixCathedraDGV()
+        {
+            dataGridView3.Columns[0].Width = 305;
+            dataGridView3.Columns[1].Width = 305;
+            dataGridView3.Columns[0].HeaderText = "Кафедра";
+            dataGridView3.Columns[1].HeaderText = "Факультет";
         }
 
         public BindingSource GetMainDGVBindingSource()
