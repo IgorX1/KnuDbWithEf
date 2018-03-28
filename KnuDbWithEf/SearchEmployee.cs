@@ -57,7 +57,7 @@ namespace KnuDbWithEf
                           rating = i.RATING,
                           degree = i.DEGREE1.DEGREELIST.D_NAME,
                           year = i.DEGREE1.YEAR_GOT
-                      };//ctx.EMPLOYEE.Select(x => x);
+                      };
 
 
             if (Name != String.Empty)
