@@ -64,6 +64,13 @@ namespace KnuDbWithEf
             mainDataGridView.Columns[6].Width = 60;
             mainDataGridView.Columns[7].Width = 45;
         }
+        private void FixMainDgvWidth()
+        {
+            mainDataGridView.Columns[1].Width = 205;
+            mainDataGridView.Columns[5].Width = 40;
+            mainDataGridView.Columns[6].Width = 60;
+            mainDataGridView.Columns[7].Width = 45;
+        }
 
         private void FixCathedraDGV()
         {
@@ -381,6 +388,11 @@ namespace KnuDbWithEf
                 return;
             }
             dataGridView5.DataSource = ctx.DEGREELIST.Local.ToBindingList();
+        }
+
+        private void стандартнийВиглядToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FixMainDgvWidth();
         }
     }
 }

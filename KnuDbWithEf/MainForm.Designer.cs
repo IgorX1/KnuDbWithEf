@@ -91,6 +91,7 @@
             this.DelDegreeBtn = new System.Windows.Forms.Button();
             this.AddDegreeBtn = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dEGREELISTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.numOfDegreeLabel = new System.Windows.Forms.Label();
@@ -113,7 +114,8 @@
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cATHEDRABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.виглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.стандартнийВиглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).BeginInit();
             this.searchGroupBox.SuspendLayout();
@@ -480,6 +482,7 @@
             // 
             // bigIconPB
             // 
+            this.bigIconPB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bigIconPB.Image = ((System.Drawing.Image)(resources.GetObject("bigIconPB.Image")));
             this.bigIconPB.Location = new System.Drawing.Point(3, 3);
             this.bigIconPB.Name = "bigIconPB";
@@ -752,6 +755,14 @@
             this.dataGridView5.Size = new System.Drawing.Size(653, 469);
             this.dataGridView5.TabIndex = 0;
             // 
+            // dNAMEDataGridViewTextBoxColumn1
+            // 
+            this.dNAMEDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dNAMEDataGridViewTextBoxColumn1.DataPropertyName = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn1.HeaderText = "Звання";
+            this.dNAMEDataGridViewTextBoxColumn1.Name = "dNAMEDataGridViewTextBoxColumn1";
+            this.dNAMEDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // dEGREELISTBindingSource
             // 
             this.dEGREELISTBindingSource.DataSource = typeof(EmployeeEf.DEGREELIST);
@@ -873,7 +884,8 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.зберегтиToolStripMenuItem});
+            this.зберегтиToolStripMenuItem,
+            this.виглядToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.menuToolStripMenuItem.Text = "Меню";
@@ -954,12 +966,20 @@
             // 
             this.cATHEDRABindingSource.DataSource = typeof(EmployeeEf.CATHEDRA);
             // 
-            // dNAMEDataGridViewTextBoxColumn1
+            // виглядToolStripMenuItem
             // 
-            this.dNAMEDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dNAMEDataGridViewTextBoxColumn1.DataPropertyName = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn1.HeaderText = "Звання";
-            this.dNAMEDataGridViewTextBoxColumn1.Name = "dNAMEDataGridViewTextBoxColumn1";
+            this.виглядToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.стандартнийВиглядToolStripMenuItem});
+            this.виглядToolStripMenuItem.Name = "виглядToolStripMenuItem";
+            this.виглядToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.виглядToolStripMenuItem.Text = "Вигляд";
+            // 
+            // стандартнийВиглядToolStripMenuItem
+            // 
+            this.стандартнийВиглядToolStripMenuItem.Name = "стандартнийВиглядToolStripMenuItem";
+            this.стандартнийВиглядToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.стандартнийВиглядToolStripMenuItem.Text = "Стандартний вигляд";
+            this.стандартнийВиглядToolStripMenuItem.Click += new System.EventHandler(this.стандартнийВиглядToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1090,6 +1110,8 @@
         private System.Windows.Forms.ToolStripMenuItem зберегтиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dNAMEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripMenuItem виглядToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem стандартнийВиглядToolStripMenuItem;
     }
 }
 
