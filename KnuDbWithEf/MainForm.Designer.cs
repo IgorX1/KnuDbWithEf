@@ -895,14 +895,15 @@
             this.зберегтиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xMLToolStripMenuItem});
             this.зберегтиToolStripMenuItem.Name = "зберегтиToolStripMenuItem";
-            this.зберегтиToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.зберегтиToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.зберегтиToolStripMenuItem.Text = "Зберегти";
             // 
             // xMLToolStripMenuItem
             // 
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.xMLToolStripMenuItem.Text = "XML";
+            this.xMLToolStripMenuItem.Click += new System.EventHandler(this.XMLToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 

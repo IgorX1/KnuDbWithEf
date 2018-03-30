@@ -40,6 +40,7 @@ namespace KnuDbWithEf
             }
             MainForm mainForm = new MainForm();
             dataGrid.DataSource = mainForm.GetCathedraDGVBindingSource();
+            this.Close();
         }
 
         private void AddCathedraForm_Load(object sender, EventArgs e)

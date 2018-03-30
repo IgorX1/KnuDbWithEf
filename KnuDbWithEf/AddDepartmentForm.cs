@@ -39,6 +39,7 @@ namespace KnuDbWithEf
                 return;
             }
             dataGrid.DataSource = ctx.DEPARTMENT.Local.ToList();
+            this.Close();
         }
     }
 }

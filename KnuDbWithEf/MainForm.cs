@@ -394,5 +394,10 @@ namespace KnuDbWithEf
         {
             FixMainDgvWidth();
         }
+
+        private void XMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

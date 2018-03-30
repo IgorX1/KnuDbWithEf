@@ -100,6 +100,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchEmployee.cs" />
+    <Compile Include="TransformToXml.cs" />
     <EmbeddedResource Include="AddCathedraForm.resx">
       <DependentUpon>AddCathedraForm.cs</DependentUpon>
     </EmbeddedResource>
