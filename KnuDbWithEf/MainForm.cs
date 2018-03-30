@@ -397,7 +397,8 @@ namespace KnuDbWithEf
 
         private void XMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            TransformToXml toXml = new TransformToXml(ctx);
+            toXml.CreateEmployeeXML();
         }
     }
 }
