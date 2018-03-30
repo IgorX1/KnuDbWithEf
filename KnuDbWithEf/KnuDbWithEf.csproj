@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="CathedraManager.cs" />
     <Compile Include="ConstantValues.cs" />
+    <Compile Include="DegreeManager.cs" />
     <Compile Include="DepartmentManager.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeAdding.cs" />

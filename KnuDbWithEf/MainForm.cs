@@ -362,12 +362,25 @@ namespace KnuDbWithEf
 
         private void AddDegreeBtn_Click(object sender, EventArgs e)
         {
-
+            AddDegreeForm addDegreeForm = new AddDegreeForm(dataGridView5, ctx);
+            addDegreeForm.Show();
         }
 
         private void DelDegreeBtn_Click(object sender, EventArgs e)
         {
-
+            string value = dataGridView5.SelectedCells[0].Value.ToString();
+            //string value = dataGridView5["dNAMEDataGridViewTextBoxColumn1", dataGridView5.CurrentCell.RowIndex].Value.ToString();
+            try
+            {
+                DegreeManager degreeManager = new DegreeManager(ctx);
+                degreeManager.Delete(value);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                return;
+            }
+            dataGridView5.DataSource = ctx.DEGREELIST.Local.ToBindingList();
         }
     }
 }
