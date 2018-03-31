@@ -12,6 +12,8 @@ using EmployeeEf;
 
 namespace KnuDbWithEf
 {
+    /*To find comments on all the stuf from this class,
+     go the MainForm class which is an extended version of this class*/
     public partial class MainFormUser : Form
     {
         private KNUDBEntities ctx;
