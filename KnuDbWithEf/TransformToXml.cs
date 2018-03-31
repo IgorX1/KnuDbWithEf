@@ -60,7 +60,11 @@ namespace KnuDbWithEf
             }
             catch (XmlException)
             {
-                MessageBox.Show("Невдалося зберегти");
+                MessageBox.Show("XmlEcception");
+                return;
+            }
+            catch(Exception e)
+            {
                 return;
             }
             MessageBox.Show("Збереженя успішне!");
@@ -79,8 +83,7 @@ namespace KnuDbWithEf
             }
             else
             {
-                MessageBox.Show("Шлях збереження не коректний. Збережено в стандартну папку - робочий стіл");
-                return sfd.InitialDirectory;
+                throw new Exception("Шлях збереження не коректний. Операцію відхилено.");
             }
         }
     }

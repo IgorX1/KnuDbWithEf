@@ -183,16 +183,29 @@ namespace KnuDbWithEf
                                  where i.ID == id
                                  select i).First();
 
-            if (MessageBox.Show("Ви впевнені?", "Attention!", MessageBoxButtons.YesNo)==DialogResult.Yes)
+            if (MessageBox.Show("Ви впевнені?", "Увага!", MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
                 ctx.PHOTO.Remove(eMPLOYEE.PHOTO1);
                 ctx.DEGREE.Remove(eMPLOYEE.DEGREE1);
                 ctx.EMAIL.Remove(eMPLOYEE.EMAIL1);
                 ctx.EMPLOYEE.Remove(eMPLOYEE);
                 eMPLOYEEBindingSource.RemoveCurrent();
-                ctx.SaveChanges();
+                try
+                {
+                    ctx.SaveChanges();
+                }
+                catch(Exception except)
+                {
+                    if(except is System.Data.Entity.Infrastructure.DbUpdateException
+                    || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+                    || except is System.Data.Entity.Validation.DbEntityValidationException)
+                    {
+                        MessageBox.Show("Проблеми під час комунікації з БД");
+                        return;
+                    }
+                }
+                
                 ReleasePropertiesOfControls();
-                MessageBox.Show("Вітання! Видалення успішне!");
                 mainDataGridView.DataSource = GetMainDGVBindingSource();
             }
             
@@ -254,7 +267,21 @@ namespace KnuDbWithEf
             alterEmployee.Change(ref r);
             if(r)
             {
-                ctx.SaveChanges();
+                try
+                {
+                    ctx.SaveChanges();
+                }
+                catch (Exception except)
+                {
+                    if (except is System.Data.Entity.Infrastructure.DbUpdateException
+                    || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+                    || except is System.Data.Entity.Validation.DbEntityValidationException)
+                    {
+                        MessageBox.Show("Проблеми під час комунікації з БД");
+                        return;
+                    }
+                }
+                
                 mainDataGridView.DataSource = GetMainDGVBindingSource();
             }               
             else
@@ -310,8 +337,12 @@ namespace KnuDbWithEf
             string value = dataGridView2["dNAMEDataGridViewTextBoxColumn", dataGridView2.CurrentCell.RowIndex].Value.ToString();
             try
             {
-                DepartmentManager departmentManager = new DepartmentManager(ctx);
-                departmentManager.Delete(value);
+                if (MessageBox.Show("Ви впевнені?", "Увага!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DepartmentManager departmentManager = new DepartmentManager(ctx);
+                    departmentManager.Delete(value);
+                }
+                else return;
 
             }
             catch (Exception exc)
@@ -319,8 +350,6 @@ namespace KnuDbWithEf
                 MessageBox.Show(exc.Message);
                 return;
             }
-
-            MessageBox.Show("Вітання! Факультет видалено!");
             dataGridView2.DataSource = ctx.DEPARTMENT.Local.ToList();
         }
 
@@ -356,8 +385,12 @@ namespace KnuDbWithEf
             string value_dep = dataGridView3[1, dataGridView3.CurrentCell.RowIndex].Value.ToString();
             try
             {
-                CathedraManager cathedraManager = new CathedraManager(ctx);
-                cathedraManager.Delete(value_cath, value_dep);
+                if (MessageBox.Show("Ви впевнені?", "Увага!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    CathedraManager cathedraManager = new CathedraManager(ctx);
+                    cathedraManager.Delete(value_cath, value_dep);
+                }
+                else return;
             }
             catch (Exception exc)
             {
@@ -379,8 +412,12 @@ namespace KnuDbWithEf
             //string value = dataGridView5["dNAMEDataGridViewTextBoxColumn1", dataGridView5.CurrentCell.RowIndex].Value.ToString();
             try
             {
-                DegreeManager degreeManager = new DegreeManager(ctx);
-                degreeManager.Delete(value);
+                if (MessageBox.Show("Ви впевнені?", "Увага!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DegreeManager degreeManager = new DegreeManager(ctx);
+                    degreeManager.Delete(value);
+                }
+                else return;
             }
             catch (Exception exc)
             {

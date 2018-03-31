@@ -33,7 +33,21 @@ namespace KnuDbWithEf
             }
 
             ctx.DEGREELIST.Add(new DEGREELIST { D_NAME = NametextBox.Text });
-            ctx.SaveChanges();
+            try
+            {
+                ctx.SaveChanges();
+            }
+            catch (Exception except)
+            {
+
+                if (except is System.Data.Entity.Infrastructure.DbUpdateException
+                     || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+                     || except is System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    MessageBox.Show("Проблеми під час комунікації з БД");
+                    return;
+                }
+            }
 
             MessageBox.Show("Вітання! Нове звання створено!");
         }
@@ -52,8 +66,20 @@ namespace KnuDbWithEf
                          where i.D_NAME == name
                          select i).Single();
             ctx.DEGREELIST.Remove(degree);
-            ctx.SaveChanges();
-            MessageBox.Show("Вітання! Звання видалено!");
+            try
+            {
+                ctx.SaveChanges();
+            }
+            catch (Exception except)
+            {
+                if (except is System.Data.Entity.Infrastructure.DbUpdateException
+                     || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+                     || except is System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    MessageBox.Show("Проблеми під час комунікації з БД");
+                    return;
+                }
+            }
         }
     }
 }

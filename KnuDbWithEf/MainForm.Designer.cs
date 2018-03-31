@@ -107,6 +107,8 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зберегтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.виглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.стандартнийВиглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
@@ -114,8 +116,6 @@
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cATHEDRABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.виглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.стандартнийВиглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).BeginInit();
             this.searchGroupBox.SuspendLayout();
@@ -895,15 +895,30 @@
             this.зберегтиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xMLToolStripMenuItem});
             this.зберегтиToolStripMenuItem.Name = "зберегтиToolStripMenuItem";
-            this.зберегтиToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.зберегтиToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.зберегтиToolStripMenuItem.Text = "Зберегти";
             // 
             // xMLToolStripMenuItem
             // 
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
             this.xMLToolStripMenuItem.Text = "XML";
             this.xMLToolStripMenuItem.Click += new System.EventHandler(this.XMLToolStripMenuItem_Click);
+            // 
+            // виглядToolStripMenuItem
+            // 
+            this.виглядToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.стандартнийВиглядToolStripMenuItem});
+            this.виглядToolStripMenuItem.Name = "виглядToolStripMenuItem";
+            this.виглядToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.виглядToolStripMenuItem.Text = "Вигляд";
+            // 
+            // стандартнийВиглядToolStripMenuItem
+            // 
+            this.стандартнийВиглядToolStripMenuItem.Name = "стандартнийВиглядToolStripMenuItem";
+            this.стандартнийВиглядToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.стандартнийВиглядToolStripMenuItem.Text = "Стандартний вигляд";
+            this.стандартнийВиглядToolStripMenuItem.Click += new System.EventHandler(this.стандартнийВиглядToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -967,21 +982,6 @@
             // 
             this.cATHEDRABindingSource.DataSource = typeof(EmployeeEf.CATHEDRA);
             // 
-            // виглядToolStripMenuItem
-            // 
-            this.виглядToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.стандартнийВиглядToolStripMenuItem});
-            this.виглядToolStripMenuItem.Name = "виглядToolStripMenuItem";
-            this.виглядToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.виглядToolStripMenuItem.Text = "Вигляд";
-            // 
-            // стандартнийВиглядToolStripMenuItem
-            // 
-            this.стандартнийВиглядToolStripMenuItem.Name = "стандартнийВиглядToolStripMenuItem";
-            this.стандартнийВиглядToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.стандартнийВиглядToolStripMenuItem.Text = "Стандартний вигляд";
-            this.стандартнийВиглядToolStripMenuItem.Click += new System.EventHandler(this.стандартнийВиглядToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -992,7 +992,10 @@
             this.Controls.Add(this.statsTab);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.buttonPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.ShowIcon = false;
             this.Text = "База даних КНУ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
