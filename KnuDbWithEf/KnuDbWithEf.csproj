@@ -42,6 +42,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +73,7 @@
       <DependentUpon>AddDepartmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AlterEmployee.cs" />
+    <Compile Include="Authorisation.cs" />
     <Compile Include="AuthorisationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +82,7 @@
     </Compile>
     <Compile Include="CathedraManager.cs" />
     <Compile Include="ConstantValues.cs" />
+    <Compile Include="DegreeManager.cs" />
     <Compile Include="DepartmentManager.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeAdding.cs" />
@@ -90,6 +93,12 @@
       <DependentUpon>EmployeeAddingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeVisualization.cs" />
+    <Compile Include="MainFormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormUser.Designer.cs">
+      <DependentUpon>MainFormUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,7 +107,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.cs" />
     <Compile Include="SearchEmployee.cs" />
+    <Compile Include="TransformToXml.cs" />
     <EmbeddedResource Include="AddCathedraForm.resx">
       <DependentUpon>AddCathedraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeAddingForm.resx">
       <DependentUpon>EmployeeAddingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormUser.resx">
+      <DependentUpon>MainFormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

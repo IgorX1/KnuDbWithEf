@@ -1,6 +1,6 @@
 ﻿namespace KnuDbWithEf
 {
-    partial class MainForm
+    partial class MainFormUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.changePhotoBtn = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormUser));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.searchYearTextBox = new System.Windows.Forms.TextBox();
@@ -41,7 +40,6 @@
             this.searchEmailTextBox = new System.Windows.Forms.TextBox();
             this.empGroupBox = new System.Windows.Forms.GroupBox();
             this.yearTextBox = new System.Windows.Forms.TextBox();
-            this.alterEmployee = new System.Windows.Forms.Button();
             this.finishShowBtn = new System.Windows.Forms.Button();
             this.ratingTextBox = new System.Windows.Forms.TextBox();
             this.ratingLabel = new System.Windows.Forms.Label();
@@ -70,8 +68,6 @@
             this.bigIconPB = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.depTab = new System.Windows.Forms.TabPage();
-            this.DelDepBtn = new System.Windows.Forms.Button();
-            this.addDepBtn = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cATHEDRADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,13 +79,9 @@
             this.statsTab = new System.Windows.Forms.TabControl();
             this.cathedraTab = new System.Windows.Forms.TabPage();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.delCathedraBtn = new System.Windows.Forms.Button();
-            this.addCathedraBtn = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.DelDegreeBtn = new System.Windows.Forms.Button();
-            this.AddDegreeBtn = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.dNAMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dEGREELISTBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -110,8 +102,6 @@
             this.виглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.стандартнийВиглядToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.delBtn = new System.Windows.Forms.Button();
             this.allEmployeesBtn = new System.Windows.Forms.Button();
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -139,17 +129,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cATHEDRABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // changePhotoBtn
-            // 
-            this.changePhotoBtn.Enabled = false;
-            this.changePhotoBtn.Location = new System.Drawing.Point(61, 450);
-            this.changePhotoBtn.Name = "changePhotoBtn";
-            this.changePhotoBtn.Size = new System.Drawing.Size(132, 49);
-            this.changePhotoBtn.TabIndex = 18;
-            this.changePhotoBtn.Text = "Змінити фото";
-            this.changePhotoBtn.UseVisualStyleBackColor = true;
-            this.changePhotoBtn.Click += new System.EventHandler(this.changePhotoBtn_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -158,6 +137,7 @@
             this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 17;
             this.label1.Text = "Рік:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -216,10 +196,8 @@
             // 
             // empGroupBox
             // 
-            this.empGroupBox.Controls.Add(this.changePhotoBtn);
             this.empGroupBox.Controls.Add(this.label1);
             this.empGroupBox.Controls.Add(this.yearTextBox);
-            this.empGroupBox.Controls.Add(this.alterEmployee);
             this.empGroupBox.Controls.Add(this.finishShowBtn);
             this.empGroupBox.Controls.Add(this.ratingTextBox);
             this.empGroupBox.Controls.Add(this.ratingLabel);
@@ -240,25 +218,17 @@
             this.empGroupBox.TabIndex = 9;
             this.empGroupBox.TabStop = false;
             this.empGroupBox.Text = "Інформація про працівника";
+            this.empGroupBox.Enter += new System.EventHandler(this.empGroupBox_Enter);
             // 
             // yearTextBox
             // 
             this.yearTextBox.Enabled = false;
             this.yearTextBox.Location = new System.Drawing.Point(445, 360);
             this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.ReadOnly = true;
             this.yearTextBox.Size = new System.Drawing.Size(166, 22);
             this.yearTextBox.TabIndex = 16;
-            // 
-            // alterEmployee
-            // 
-            this.alterEmployee.Enabled = false;
-            this.alterEmployee.Location = new System.Drawing.Point(341, 450);
-            this.alterEmployee.Name = "alterEmployee";
-            this.alterEmployee.Size = new System.Drawing.Size(132, 49);
-            this.alterEmployee.TabIndex = 15;
-            this.alterEmployee.Text = "Внести зміни\r\n";
-            this.alterEmployee.UseVisualStyleBackColor = true;
-            this.alterEmployee.Click += new System.EventHandler(this.alterEmployee_Click);
+            this.yearTextBox.TextChanged += new System.EventHandler(this.yearTextBox_TextChanged);
             // 
             // finishShowBtn
             // 
@@ -276,8 +246,10 @@
             this.ratingTextBox.Enabled = false;
             this.ratingTextBox.Location = new System.Drawing.Point(165, 400);
             this.ratingTextBox.Name = "ratingTextBox";
+            this.ratingTextBox.ReadOnly = true;
             this.ratingTextBox.Size = new System.Drawing.Size(446, 22);
             this.ratingTextBox.TabIndex = 13;
+            this.ratingTextBox.TextChanged += new System.EventHandler(this.ratingTextBox_TextChanged);
             // 
             // ratingLabel
             // 
@@ -293,8 +265,10 @@
             this.degreeTextBox.Enabled = false;
             this.degreeTextBox.Location = new System.Drawing.Point(165, 360);
             this.degreeTextBox.Name = "degreeTextBox";
+            this.degreeTextBox.ReadOnly = true;
             this.degreeTextBox.Size = new System.Drawing.Size(212, 22);
             this.degreeTextBox.TabIndex = 11;
+            this.degreeTextBox.TextChanged += new System.EventHandler(this.degreeTextBox_TextChanged);
             // 
             // degreeLabel
             // 
@@ -310,8 +284,10 @@
             this.emailTextBox.Enabled = false;
             this.emailTextBox.Location = new System.Drawing.Point(165, 323);
             this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.ReadOnly = true;
             this.emailTextBox.Size = new System.Drawing.Size(446, 22);
             this.emailTextBox.TabIndex = 9;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // emailLabel
             // 
@@ -327,8 +303,10 @@
             this.cathedraTextBox.Enabled = false;
             this.cathedraTextBox.Location = new System.Drawing.Point(165, 291);
             this.cathedraTextBox.Name = "cathedraTextBox";
+            this.cathedraTextBox.ReadOnly = true;
             this.cathedraTextBox.Size = new System.Drawing.Size(446, 22);
             this.cathedraTextBox.TabIndex = 7;
+            this.cathedraTextBox.TextChanged += new System.EventHandler(this.cathedraTextBox_TextChanged);
             // 
             // cathedraLabel
             // 
@@ -344,8 +322,10 @@
             this.departmentTextBox.Enabled = false;
             this.departmentTextBox.Location = new System.Drawing.Point(165, 252);
             this.departmentTextBox.Name = "departmentTextBox";
+            this.departmentTextBox.ReadOnly = true;
             this.departmentTextBox.Size = new System.Drawing.Size(446, 22);
             this.departmentTextBox.TabIndex = 5;
+            this.departmentTextBox.TextChanged += new System.EventHandler(this.departmentTextBox_TextChanged);
             // 
             // departmentLabel
             // 
@@ -361,8 +341,10 @@
             this.nameTextBox.Enabled = false;
             this.nameTextBox.Location = new System.Drawing.Point(165, 213);
             this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(446, 22);
             this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // nameLabel
             // 
@@ -504,17 +486,15 @@
             // 
             this.richTextBox1.Enabled = false;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(77, 3);
+            this.richTextBox1.Location = new System.Drawing.Point(6, 3);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(505, 29);
+            this.richTextBox1.Size = new System.Drawing.Size(650, 29);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "                          Вкладка керування факультетами";
             // 
             // depTab
             // 
             this.depTab.Controls.Add(this.richTextBox1);
-            this.depTab.Controls.Add(this.DelDepBtn);
-            this.depTab.Controls.Add(this.addDepBtn);
             this.depTab.Controls.Add(this.dataGridView2);
             this.depTab.Controls.Add(this.dataGridView1);
             this.depTab.Location = new System.Drawing.Point(4, 25);
@@ -524,26 +504,6 @@
             this.depTab.TabIndex = 1;
             this.depTab.Text = "Факультети";
             this.depTab.UseVisualStyleBackColor = true;
-            // 
-            // DelDepBtn
-            // 
-            this.DelDepBtn.Location = new System.Drawing.Point(579, 0);
-            this.DelDepBtn.Name = "DelDepBtn";
-            this.DelDepBtn.Size = new System.Drawing.Size(80, 33);
-            this.DelDepBtn.TabIndex = 3;
-            this.DelDepBtn.Text = "Видалити";
-            this.DelDepBtn.UseVisualStyleBackColor = true;
-            this.DelDepBtn.Click += new System.EventHandler(this.DelDepBtn_Click);
-            // 
-            // addDepBtn
-            // 
-            this.addDepBtn.Location = new System.Drawing.Point(3, 3);
-            this.addDepBtn.Name = "addDepBtn";
-            this.addDepBtn.Size = new System.Drawing.Size(75, 33);
-            this.addDepBtn.TabIndex = 2;
-            this.addDepBtn.Text = "Додати";
-            this.addDepBtn.UseVisualStyleBackColor = true;
-            this.addDepBtn.Click += new System.EventHandler(this.addDepBtn_Click);
             // 
             // dataGridView2
             // 
@@ -647,8 +607,6 @@
             // cathedraTab
             // 
             this.cathedraTab.Controls.Add(this.richTextBox2);
-            this.cathedraTab.Controls.Add(this.delCathedraBtn);
-            this.cathedraTab.Controls.Add(this.addCathedraBtn);
             this.cathedraTab.Controls.Add(this.dataGridView3);
             this.cathedraTab.Location = new System.Drawing.Point(4, 25);
             this.cathedraTab.Name = "cathedraTab";
@@ -662,31 +620,11 @@
             // 
             this.richTextBox2.Enabled = false;
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox2.Location = new System.Drawing.Point(76, 3);
+            this.richTextBox2.Location = new System.Drawing.Point(3, 3);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(506, 29);
+            this.richTextBox2.Size = new System.Drawing.Size(653, 29);
             this.richTextBox2.TabIndex = 7;
             this.richTextBox2.Text = "                          Вкладка керування кафедрами";
-            // 
-            // delCathedraBtn
-            // 
-            this.delCathedraBtn.Location = new System.Drawing.Point(578, 0);
-            this.delCathedraBtn.Name = "delCathedraBtn";
-            this.delCathedraBtn.Size = new System.Drawing.Size(81, 33);
-            this.delCathedraBtn.TabIndex = 6;
-            this.delCathedraBtn.Text = "Видалити";
-            this.delCathedraBtn.UseVisualStyleBackColor = true;
-            this.delCathedraBtn.Click += new System.EventHandler(this.delCathedraBtn_Click);
-            // 
-            // addCathedraBtn
-            // 
-            this.addCathedraBtn.Location = new System.Drawing.Point(4, 1);
-            this.addCathedraBtn.Name = "addCathedraBtn";
-            this.addCathedraBtn.Size = new System.Drawing.Size(73, 33);
-            this.addCathedraBtn.TabIndex = 5;
-            this.addCathedraBtn.Text = "Додати";
-            this.addCathedraBtn.UseVisualStyleBackColor = true;
-            this.addCathedraBtn.Click += new System.EventHandler(this.addCathedraBtn_Click);
             // 
             // dataGridView3
             // 
@@ -704,8 +642,6 @@
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.richTextBox3);
-            this.tabPage5.Controls.Add(this.DelDegreeBtn);
-            this.tabPage5.Controls.Add(this.AddDegreeBtn);
             this.tabPage5.Controls.Add(this.dataGridView5);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
@@ -719,31 +655,11 @@
             // 
             this.richTextBox3.Enabled = false;
             this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox3.Location = new System.Drawing.Point(74, 6);
+            this.richTextBox3.Location = new System.Drawing.Point(3, 6);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(506, 29);
+            this.richTextBox3.Size = new System.Drawing.Size(653, 29);
             this.richTextBox3.TabIndex = 10;
             this.richTextBox3.Text = "                          Вкладка керування званнями";
-            // 
-            // DelDegreeBtn
-            // 
-            this.DelDegreeBtn.Location = new System.Drawing.Point(576, 3);
-            this.DelDegreeBtn.Name = "DelDegreeBtn";
-            this.DelDegreeBtn.Size = new System.Drawing.Size(81, 33);
-            this.DelDegreeBtn.TabIndex = 9;
-            this.DelDegreeBtn.Text = "Видалити";
-            this.DelDegreeBtn.UseVisualStyleBackColor = true;
-            this.DelDegreeBtn.Click += new System.EventHandler(this.DelDegreeBtn_Click);
-            // 
-            // AddDegreeBtn
-            // 
-            this.AddDegreeBtn.Location = new System.Drawing.Point(2, 4);
-            this.AddDegreeBtn.Name = "AddDegreeBtn";
-            this.AddDegreeBtn.Size = new System.Drawing.Size(73, 33);
-            this.AddDegreeBtn.TabIndex = 8;
-            this.AddDegreeBtn.Text = "Додати";
-            this.AddDegreeBtn.UseVisualStyleBackColor = true;
-            this.AddDegreeBtn.Click += new System.EventHandler(this.AddDegreeBtn_Click);
             // 
             // dataGridView5
             // 
@@ -939,27 +855,6 @@
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // addBtn
-            // 
-            this.addBtn.Location = new System.Drawing.Point(3, 238);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(132, 52);
-            this.addBtn.TabIndex = 4;
-            this.addBtn.Text = "Додати працівника";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
-            // 
-            // delBtn
-            // 
-            this.delBtn.Enabled = false;
-            this.delBtn.Location = new System.Drawing.Point(3, 180);
-            this.delBtn.Name = "delBtn";
-            this.delBtn.Size = new System.Drawing.Size(132, 52);
-            this.delBtn.TabIndex = 3;
-            this.delBtn.Text = "Видалення обраного";
-            this.delBtn.UseVisualStyleBackColor = true;
-            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
-            // 
             // allEmployeesBtn
             // 
             this.allEmployeesBtn.Location = new System.Drawing.Point(3, 123);
@@ -972,8 +867,6 @@
             // 
             // buttonPanel
             // 
-            this.buttonPanel.Controls.Add(this.addBtn);
-            this.buttonPanel.Controls.Add(this.delBtn);
             this.buttonPanel.Controls.Add(this.allEmployeesBtn);
             this.buttonPanel.Controls.Add(this.bigIconPB);
             this.buttonPanel.Location = new System.Drawing.Point(12, 37);
@@ -989,7 +882,7 @@
             // 
             this.cATHEDRABindingSource.DataSource = typeof(EmployeeEf.CATHEDRA);
             // 
-            // MainForm
+            // MainFormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1001,7 +894,7 @@
             this.Controls.Add(this.buttonPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "MainFormUser";
             this.ShowIcon = false;
             this.Text = "База даних КНУ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -1039,7 +932,6 @@
         #endregion
         private System.Windows.Forms.BindingSource eMPLOYEEBindingSource;
         private System.Windows.Forms.Label numOfCathedraLabel;
-        private System.Windows.Forms.Button changePhotoBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox searchYearTextBox;
@@ -1051,7 +943,6 @@
         private System.Windows.Forms.TextBox searchEmailTextBox;
         private System.Windows.Forms.GroupBox empGroupBox;
         private System.Windows.Forms.TextBox yearTextBox;
-        private System.Windows.Forms.Button alterEmployee;
         private System.Windows.Forms.Button finishShowBtn;
         private System.Windows.Forms.TextBox ratingTextBox;
         private System.Windows.Forms.Label ratingLabel;
@@ -1087,8 +978,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TabPage depTab;
-        private System.Windows.Forms.Button DelDepBtn;
-        private System.Windows.Forms.Button addDepBtn;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView mainDataGridView;
@@ -1096,20 +985,14 @@
         private System.Windows.Forms.TabControl statsTab;
         private System.Windows.Forms.TabPage cathedraTab;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button delCathedraBtn;
-        private System.Windows.Forms.Button addCathedraBtn;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.Button DelDegreeBtn;
-        private System.Windows.Forms.Button AddDegreeBtn;
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.ToolStripMenuItem інфораціяПроКНУToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button delBtn;
         private System.Windows.Forms.Button allEmployeesBtn;
         private System.Windows.Forms.Panel buttonPanel;
         private System.Windows.Forms.BindingSource dEPARTMENTBindingSource;

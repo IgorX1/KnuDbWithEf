@@ -36,7 +36,21 @@ namespace KnuDbWithEf
             };
 
             ctx.CATHEDRA.Add(c);
-            ctx.SaveChanges();
+            try
+            {
+                ctx.SaveChanges();
+            }
+            catch (Exception except)
+            {
+                if (except is System.Data.Entity.Infrastructure.DbUpdateException
+                    || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+                    || except is System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    MessageBox.Show("Проблеми під час комунікації з БД");
+                    return;
+                }
+            }
+            
             MessageBox.Show("Вітання! Нову кафедру створено!");
         }
 
@@ -49,8 +63,20 @@ namespace KnuDbWithEf
 
             var c = ctx.CATHEDRA.Where(x => x.C_NAME == name && x.DEPARTMENT.D_NAME == dep).Select(x => x).Single();
             ctx.CATHEDRA.Remove(c);
-            ctx.SaveChanges();
-            MessageBox.Show("Вітання! Кафедру видалено!");
+            try
+            {
+                ctx.SaveChanges();
+            }
+            catch (Exception except)
+            {
+                if (except is System.Data.Entity.Infrastructure.DbUpdateException
+                    || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+                    || except is System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    MessageBox.Show("Проблеми під час комунікації з БД");
+                    return;
+                }
+            }
         }
     }
     

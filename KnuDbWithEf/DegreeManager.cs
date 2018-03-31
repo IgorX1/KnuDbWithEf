@@ -8,34 +8,64 @@ using EmployeeEf;
 
 namespace KnuDbWithEf
 {
-    class DepartmentManager
+    class DegreeManager
     {
         KNUDBEntities ctx;
-
-        public DepartmentManager(KNUDBEntities ctx)
+        public DegreeManager(KNUDBEntities ctx)
         {
             this.ctx = ctx;
         }
-
         public void Save(TextBox NametextBox)
         {
             if (NametextBox.Text == String.Empty)
             {
-                MessageBox.Show("Факультет без назви? Але ж такого не буває!");
+                MessageBox.Show("Звання без назви? Але ж такого не буває!");
                 return;
             }
 
-            int num = (from i in ctx.DEPARTMENT
+            int num = (from i in ctx.DEGREELIST
                        where i.D_NAME == NametextBox.Text
                        select i).Count();
-            
             if (num > 0)
             {
-                MessageBox.Show("Факультет з цією назвою вже існує!");
+                MessageBox.Show("Звання з цією назвою вже існує!");
                 return;
             }
 
-            ctx.DEPARTMENT.Add(new DEPARTMENT { D_NAME = NametextBox.Text });
+            ctx.DEGREELIST.Add(new DEGREELIST { D_NAME = NametextBox.Text });
+            try
+            {
+                ctx.SaveChanges();
+            }
+            catch (Exception except)
+            {
+
+                if (except is System.Data.Entity.Infrastructure.DbUpdateException
+                     || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
+                     || except is System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    MessageBox.Show("Проблеми під час комунікації з БД");
+                    return;
+                }
+            }
+
+            MessageBox.Show("Вітання! Нове звання створено!");
+        }
+
+        public void Delete(string name)
+        {
+            bool num = (from i in ctx.EMPLOYEE
+                       where i.DEGREE1.DEGREELIST.D_NAME == name
+                       select i).Any();
+            if(num)
+            {
+                throw new Exception("До звання прив'язані співробітники. Видалити неможливо!");
+            }
+
+            var degree = (from i in ctx.DEGREELIST
+                         where i.D_NAME == name
+                         select i).Single();
+            ctx.DEGREELIST.Remove(degree);
             try
             {
                 ctx.SaveChanges();
@@ -50,38 +80,6 @@ namespace KnuDbWithEf
                     return;
                 }
             }
-            
-            MessageBox.Show("Вітання! Новий факультет створено!");
-        }
-
-        public void Delete(string name)
-        {
-            //noe stands for @number of employees
-            int noe = (from i in ctx.EMPLOYEE
-                       where i.DEPARTMENT1.D_NAME == name
-                       select i).Count();
-            if (noe > 0)
-            {
-                throw new Exception("До факультета прив'язані співробітники. Видалити неможливо!");
-            }
-            var dep = (from i in ctx.DEPARTMENT
-                       where i.D_NAME == name
-                       select i).Single();
-            ctx.DEPARTMENT.Remove(dep);
-            try
-            {
-                ctx.SaveChanges();
-            }
-            catch (Exception except)
-            {
-                if (except is System.Data.Entity.Infrastructure.DbUpdateException
-                                     || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
-                                     || except is System.Data.Entity.Validation.DbEntityValidationException)
-                {
-                    MessageBox.Show("Проблеми під час комунікації з БД");
-                    return;
-                }
-            }           
         }
     }
 }

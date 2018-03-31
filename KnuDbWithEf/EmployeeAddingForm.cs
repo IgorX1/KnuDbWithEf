@@ -60,6 +60,7 @@ namespace KnuDbWithEf
                                                );
             MainForm mainForm = new MainForm();
             dgv.DataSource = mainForm.GetMainDGVBindingSource();
+            this.Close();
         }
 
         private void EmployeeAddingForm_Load(object sender, EventArgs e)

@@ -42,6 +42,7 @@
             this.ClearBtn.TabIndex = 11;
             this.ClearBtn.Text = "Очистити";
             this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // SaveBtn
             // 
@@ -51,6 +52,7 @@
             this.SaveBtn.TabIndex = 10;
             this.SaveBtn.Text = "Зберегти";
             this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // NametextBox
             // 
@@ -78,8 +80,10 @@
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.NametextBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddDegreeForm";
-            this.Text = "AddDegreeForm";
+            this.ShowIcon = false;
+            this.Text = "Додати звання";
             this.ResumeLayout(false);
             this.PerformLayout();
 

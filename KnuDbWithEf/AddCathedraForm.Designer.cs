@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.NametextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +49,10 @@
             this.comboBox1.Size = new System.Drawing.Size(255, 24);
             this.comboBox1.TabIndex = 15;
             this.comboBox1.ValueMember = "ID";
+            // 
+            // dEPARTMENTBindingSource
+            // 
+            this.dEPARTMENTBindingSource.DataSource = typeof(EmployeeEf.DEPARTMENT);
             // 
             // label2
             // 
@@ -97,10 +101,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Назва:";
             // 
-            // dEPARTMENTBindingSource
-            // 
-            this.dEPARTMENTBindingSource.DataSource = typeof(EmployeeEf.DEPARTMENT);
-            // 
             // AddCathedraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -112,8 +112,10 @@
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.NametextBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddCathedraForm";
-            this.Text = "AddCathedraForm";
+            this.ShowIcon = false;
+            this.Text = "Додати кафедру";
             this.Load += new System.EventHandler(this.AddCathedraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).EndInit();
             this.ResumeLayout(false);

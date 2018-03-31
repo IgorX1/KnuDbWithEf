@@ -40,12 +40,13 @@ namespace KnuDbWithEf
             }
             MainForm mainForm = new MainForm();
             dataGrid.DataSource = mainForm.GetCathedraDGVBindingSource();
+            this.Close();
         }
 
         private void AddCathedraForm_Load(object sender, EventArgs e)
         {
             dEPARTMENTBindingSource.DataSource = (from i in ctx.DEPARTMENT
-                                       select i.D_NAME).ToList();
+                                                  select i.D_NAME).ToList();
         }
     }
 }

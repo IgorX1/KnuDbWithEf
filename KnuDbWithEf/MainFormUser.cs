@@ -12,11 +12,13 @@ using EmployeeEf;
 
 namespace KnuDbWithEf
 {
-    public partial class MainForm : Form
+    /*To find comments on all the stuf from this class,
+     go the MainForm class which is an extended version of this class*/
+    public partial class MainFormUser : Form
     {
         private KNUDBEntities ctx;
         private string indexOfEmployeeVisualization;
-        public MainForm()
+        public MainFormUser()
         {
             InitializeComponent();
             ctx = new KNUDBEntities();
@@ -36,7 +38,7 @@ namespace KnuDbWithEf
             ctx.STATUS.Load();
             ctx.USERS.Load();
 
-
+            
             dEPARTMENTBindingSource.DataSource = ctx.DEPARTMENT.Local.ToBindingList();
             dEGREELISTBindingSource.DataSource = ctx.DEGREELIST.Local.ToBindingList();
             mainDataGridView.DataSource = GetMainDGVBindingSource();
@@ -47,7 +49,7 @@ namespace KnuDbWithEf
 
         private void FixMainDgv()
         {
-            //this function is responsible for
+            //this fynction is responsible for
             //setting parameners of dgv to have an
             //appropriate look
             mainDataGridView.Columns[1].HeaderText = "Ім'я";
@@ -66,10 +68,6 @@ namespace KnuDbWithEf
         }
         private void FixMainDgvWidth()
         {
-            //this function is responsible for
-            //setting parameners of dgv to have an
-            //appropriate width
-            //it is called from the menu
             mainDataGridView.Columns[1].Width = 205;
             mainDataGridView.Columns[5].Width = 40;
             mainDataGridView.Columns[6].Width = 60;
@@ -84,9 +82,6 @@ namespace KnuDbWithEf
             dataGridView3.Columns[1].HeaderText = "Факультет";
         }
 
-        //functions of this type are responsible
-        //for encapsulating the action of refreshing binding source
-        //for it to be used as a data source of DGV afte the DB was updated
         public BindingSource GetMainDGVBindingSource()
         {
             var query = (from i in ctx.EMPLOYEE
@@ -105,9 +100,6 @@ namespace KnuDbWithEf
             return eMPLOYEEBindingSource;
         }
 
-        //functions of this type are responsible
-        //for encapsulating the action of refreshing binding source
-        //for it to be used as a data source of DGV afte the DB was updated
         public BindingSource GetCathedraDGVBindingSource()
         {
             var cath_query = (from i in ctx.CATHEDRA
@@ -120,7 +112,6 @@ namespace KnuDbWithEf
             return cATHEDRABindingSource;
         }
 
-        //is raised after we click cell in DGV
         private void mainDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             EmployeeVisualization visualization = new EmployeeVisualization();
@@ -139,12 +130,10 @@ namespace KnuDbWithEf
                                           yearTextBox);
             }
             catch (ArgumentOutOfRangeException) { }
+               
+            
 
-
-
-            delBtn.Enabled = true;
-            changePhotoBtn.Enabled = true;
-            alterEmployee.Enabled = true;
+            
             finishShowBtn.Enabled = true;
             nameTextBox.Enabled = true;
             departmentTextBox.Enabled = true;
@@ -183,6 +172,10 @@ namespace KnuDbWithEf
             searchEmployee.Search();
         }
 
+        private void dEPARTMENTBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void delBtn_Click(object sender, EventArgs e)
         {
@@ -197,7 +190,7 @@ namespace KnuDbWithEf
                                  where i.ID == id
                                  select i).First();
 
-            if (MessageBox.Show("Ви впевнені?", "Увага!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Ви впевнені?", "Увага!", MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
                 ctx.PHOTO.Remove(eMPLOYEE.PHOTO1);
                 ctx.DEGREE.Remove(eMPLOYEE.DEGREE1);
@@ -208,9 +201,9 @@ namespace KnuDbWithEf
                 {
                     ctx.SaveChanges();
                 }
-                catch (Exception except)
+                catch(Exception except)
                 {
-                    if (except is System.Data.Entity.Infrastructure.DbUpdateException
+                    if(except is System.Data.Entity.Infrastructure.DbUpdateException
                     || except is System.Data.Entity.Infrastructure.DbUpdateConcurrencyException
                     || except is System.Data.Entity.Validation.DbEntityValidationException)
                     {
@@ -218,14 +211,13 @@ namespace KnuDbWithEf
                         return;
                     }
                 }
-
+                
                 ReleasePropertiesOfControls();
                 mainDataGridView.DataSource = GetMainDGVBindingSource();
             }
-
+            
         }
 
-        //is called to make controls empty
         private void ReleasePropertiesOfControls()
         {
             nameTextBox.Text = String.Empty;
@@ -236,8 +228,7 @@ namespace KnuDbWithEf
             ratingTextBox.Text = String.Empty;
             yearTextBox.Text = String.Empty;
             employeePhotoPB.Image = Properties.Resources.unknown_person_icon_Image_from;
-            alterEmployee.Enabled = false;
-            changePhotoBtn.Enabled = false;
+           
             finishShowBtn.Enabled = false;
 
             nameTextBox.Enabled = false;
@@ -284,11 +275,11 @@ namespace KnuDbWithEf
                                                             ratingTextBox,
                                                             yearTextBox,
                                                             indexOfEmployeeVisualization,
-                                                            mainDataGridView,
+                                                            mainDataGridView, 
                                                             ctx);
-            bool r = false;
+            bool r = false ;
             alterEmployee.Change(ref r);
-            if (r)
+            if(r)
             {
                 try
                 {
@@ -304,13 +295,13 @@ namespace KnuDbWithEf
                         return;
                     }
                 }
-
+                
                 mainDataGridView.DataSource = GetMainDGVBindingSource();
-            }
+            }               
             else
             {
                 var lst = ctx.ChangeTracker.Entries().Where(x => x.State != EntityState.Unchanged).ToList();
-                foreach (var entry in lst)
+                foreach(var entry in lst)
                 {
                     switch (entry.State)
                     {
@@ -327,7 +318,7 @@ namespace KnuDbWithEf
                     }
                 }
             }
-
+                
 
         }
 
@@ -344,7 +335,6 @@ namespace KnuDbWithEf
             alterEmployee.ChangePhoto(employeePhotoPB);
         }
 
-        //from here we open the webpage of the university
         private void bigIconPB_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.univ.kiev.ua/ua/");
@@ -377,7 +367,6 @@ namespace KnuDbWithEf
             dataGridView2.DataSource = ctx.DEPARTMENT.Local.ToList();
         }
 
-        //when we move between different tabs of the tabcontrol
         private void statsTab_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabPage current = (sender as TabControl).SelectedTab;
@@ -388,10 +377,10 @@ namespace KnuDbWithEf
                 numOfCathedraLabel.Text = ctx.CATHEDRA.Count().ToString();
                 numOfDegreeLabel.Text = ctx.DEGREELIST.Count().ToString();
             }
-            if (current.Name != empTab.Name)
+            if(current.Name != empTab.Name)
             {
                 //як показник того, що заповнені всі поля(бо імя точно введено)
-                if (nameTextBox.Name != String.Empty)
+                if(nameTextBox.Name!=String.Empty)
                 {
                     ReleasePropertiesOfControls();
                 }
@@ -457,11 +446,55 @@ namespace KnuDbWithEf
             FixMainDgvWidth();
         }
 
-        //to create XML document from menu
         private void XMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TransformToXml toXml = new TransformToXml(ctx);
             toXml.CreateEmployeeXML();
+        }
+
+        private void empGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void yearTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ratingTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void degreeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cathedraTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void departmentTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

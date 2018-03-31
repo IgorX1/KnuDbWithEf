@@ -80,8 +80,10 @@
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.NametextBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddDepartmentForm";
-            this.Text = "AddDepartmentForm";
+            this.ShowIcon = false;
+            this.Text = "Додати факультет";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -27,7 +27,7 @@ namespace KnuDbWithEf
             {
                 idx = Int32.Parse(index);
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 MessageBox.Show("Index can`t be converted to integer");
                 return;

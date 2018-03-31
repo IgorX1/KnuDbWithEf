@@ -16,7 +16,14 @@ namespace KnuDbWithEf
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            AuthorisationForm authorisationForm = new AuthorisationForm();
+            //we authorize either administrator or user 
+            if (authorisationForm.ShowDialog() == DialogResult.OK)
+            {
+                if (authorisationForm.Status == ConstantValues.UserStatus.Admin)
+                    Application.Run(new MainForm());
+                else Application.Run(new MainFormUser());
+            }
         }
     }
 }
