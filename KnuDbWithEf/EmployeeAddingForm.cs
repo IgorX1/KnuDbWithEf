@@ -66,8 +66,19 @@ namespace KnuDbWithEf
         private void EmployeeAddingForm_Load(object sender, EventArgs e)
         {
             dEPARTMENTBindingSource.DataSource = ctx.DEPARTMENT.Local.ToList();
-            cATHEDRABindingSource.DataSource = ctx.CATHEDRA.Local.ToList();
+            cATHEDRABindingSource.DataSource = ctx.CATHEDRA.Where(x => x.DEPARTMENT.D_NAME == departmentComboBox2.Text).ToList();
             dEGREELISTBindingSource.DataSource = ctx.DEGREELIST.Local.ToList();
+        }
+
+        private void cATHEDRABindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void departmentComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cATHEDRABindingSource.DataSource = ctx.CATHEDRA.Where(x => x.DEPARTMENT.D_NAME == departmentComboBox2.Text).ToList();
+
         }
     }
 }
