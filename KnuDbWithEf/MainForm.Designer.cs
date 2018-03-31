@@ -243,6 +243,7 @@
             // 
             // yearTextBox
             // 
+            this.yearTextBox.Enabled = false;
             this.yearTextBox.Location = new System.Drawing.Point(445, 360);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Size = new System.Drawing.Size(166, 22);
@@ -272,6 +273,7 @@
             // 
             // ratingTextBox
             // 
+            this.ratingTextBox.Enabled = false;
             this.ratingTextBox.Location = new System.Drawing.Point(165, 400);
             this.ratingTextBox.Name = "ratingTextBox";
             this.ratingTextBox.Size = new System.Drawing.Size(446, 22);
@@ -288,6 +290,7 @@
             // 
             // degreeTextBox
             // 
+            this.degreeTextBox.Enabled = false;
             this.degreeTextBox.Location = new System.Drawing.Point(165, 360);
             this.degreeTextBox.Name = "degreeTextBox";
             this.degreeTextBox.Size = new System.Drawing.Size(212, 22);
@@ -304,6 +307,7 @@
             // 
             // emailTextBox
             // 
+            this.emailTextBox.Enabled = false;
             this.emailTextBox.Location = new System.Drawing.Point(165, 323);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(446, 22);
@@ -320,6 +324,7 @@
             // 
             // cathedraTextBox
             // 
+            this.cathedraTextBox.Enabled = false;
             this.cathedraTextBox.Location = new System.Drawing.Point(165, 291);
             this.cathedraTextBox.Name = "cathedraTextBox";
             this.cathedraTextBox.Size = new System.Drawing.Size(446, 22);
@@ -336,6 +341,7 @@
             // 
             // departmentTextBox
             // 
+            this.departmentTextBox.Enabled = false;
             this.departmentTextBox.Location = new System.Drawing.Point(165, 252);
             this.departmentTextBox.Name = "departmentTextBox";
             this.departmentTextBox.Size = new System.Drawing.Size(446, 22);
@@ -352,6 +358,7 @@
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Enabled = false;
             this.nameTextBox.Location = new System.Drawing.Point(165, 213);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(446, 22);
@@ -821,7 +828,7 @@
             // 
             this.numOfEmpLabel.AutoSize = true;
             this.numOfEmpLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numOfEmpLabel.Location = new System.Drawing.Point(278, 66);
+            this.numOfEmpLabel.Location = new System.Drawing.Point(286, 66);
             this.numOfEmpLabel.Name = "numOfEmpLabel";
             this.numOfEmpLabel.Size = new System.Drawing.Size(13, 29);
             this.numOfEmpLabel.TabIndex = 4;

@@ -135,6 +135,13 @@ namespace KnuDbWithEf
             changePhotoBtn.Enabled = true;
             alterEmployee.Enabled = true;
             finishShowBtn.Enabled = true;
+            nameTextBox.Enabled = true;
+            departmentTextBox.Enabled = true;
+            cathedraTextBox.Enabled = true;
+            emailTextBox.Enabled = true;
+            degreeTextBox.Enabled = true;
+            yearTextBox.Enabled = true;
+            ratingTextBox.Enabled = true;
         }
 
         private void finishShowBtn_Click(object sender, EventArgs e)
@@ -224,6 +231,14 @@ namespace KnuDbWithEf
             alterEmployee.Enabled = false;
             changePhotoBtn.Enabled = false;
             finishShowBtn.Enabled = false;
+
+            nameTextBox.Enabled = false;
+            departmentTextBox.Enabled = false;
+            cathedraTextBox.Enabled = false;
+            emailTextBox.Enabled = false;
+            degreeTextBox.Enabled = false;
+            yearTextBox.Enabled = false;
+            ratingTextBox.Enabled = false;
         }
 
         private void ReleasePropertiesOfSearchControls()
