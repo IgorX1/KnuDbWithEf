@@ -131,6 +131,7 @@
             this.registerBtn.TabIndex = 5;
             this.registerBtn.Text = "Реєстрація";
             this.registerBtn.UseVisualStyleBackColor = true;
+            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
             // label3
             // 
@@ -190,6 +191,7 @@
             this.newUserBtn.TabIndex = 5;
             this.newUserBtn.Text = "Не маю аккаунту";
             this.newUserBtn.UseVisualStyleBackColor = true;
+            this.newUserBtn.Click += new System.EventHandler(this.newUserBtn_Click);
             // 
             // LogInBtn
             // 
@@ -199,6 +201,7 @@
             this.LogInBtn.TabIndex = 4;
             this.LogInBtn.Text = "Вхід";
             this.LogInBtn.UseVisualStyleBackColor = true;
+            this.LogInBtn.Click += new System.EventHandler(this.LogInBtn_Click);
             // 
             // label2
             // 
@@ -253,8 +256,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AuthorisationForm";
-            this.Text = "AuthorisationForm";
+            this.ShowIcon = false;
+            this.Text = "Авторизуйтеся";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthorisationForm_FormClosing);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

@@ -63,7 +63,7 @@ namespace KnuDbWithEf
                 MessageBox.Show("XmlEcception");
                 return;
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return;
             }
