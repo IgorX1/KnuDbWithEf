@@ -8,7 +8,7 @@ namespace KnuDbWithEf
 {
     static class ConstantValues
     {
-        static public int YearLowerLimit = 1900;
+        static public int YearLowerLimit = DateTime.Today.Year - 1000;
         static public int YearUpperLimit = DateTime.Today.Year;
         static public int RatingLowerLimit = 0;
         static public int RatingUpperLimit = 100;

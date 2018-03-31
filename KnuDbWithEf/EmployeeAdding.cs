@@ -113,14 +113,14 @@ namespace KnuDbWithEf
                 return;
             }
 
-            if (Int32.Parse(Year) > 2100 || Int32.Parse(Year) < 1900)
+            if (Int32.Parse(Year) > ConstantValues.YearUpperLimit || Int32.Parse(Year) < ConstantValues.YearLowerLimit)
             {
                 MessageBox.Show("Некоректна дата отримання звання");
                 ReleaseProperties();
                 return;
             }
 
-            if (Int32.Parse(Rating) > 100 || Int32.Parse(Rating) < 0)
+            if (Int32.Parse(Rating) > ConstantValues.RatingUpperLimit || Int32.Parse(Rating) < ConstantValues.RatingLowerLimit)
             {
                 MessageBox.Show("Некоректний формат рейтингу! Вкажіть значення з проміжку [0,...,100]");
                 ReleaseProperties();
