@@ -88,6 +88,7 @@
             // cATHEDRABindingSource
             // 
             this.cATHEDRABindingSource.DataSource = typeof(EmployeeEf.CATHEDRA);
+            this.cATHEDRABindingSource.CurrentChanged += new System.EventHandler(this.cATHEDRABindingSource_CurrentChanged);
             // 
             // departmentComboBox2
             // 
@@ -99,6 +100,7 @@
             this.departmentComboBox2.Size = new System.Drawing.Size(446, 24);
             this.departmentComboBox2.TabIndex = 54;
             this.departmentComboBox2.ValueMember = "ID";
+            this.departmentComboBox2.SelectedIndexChanged += new System.EventHandler(this.departmentComboBox2_SelectedIndexChanged);
             // 
             // dEPARTMENTBindingSource
             // 
