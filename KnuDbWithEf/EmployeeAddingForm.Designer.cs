@@ -31,8 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeAddingForm));
             this.degreeComboBox2 = new System.Windows.Forms.ComboBox();
+            this.dEGREELISTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cathedraComboBox2 = new System.Windows.Forms.ComboBox();
+            this.cATHEDRABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.departmentComboBox2 = new System.Windows.Forms.ComboBox();
+            this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.yearTextBox2 = new System.Windows.Forms.TextBox();
             this.yearLabel = new System.Windows.Forms.Label();
             this.attentionTextBox = new System.Windows.Forms.Label();
@@ -50,13 +53,10 @@
             this.nameTextBox2 = new System.Windows.Forms.TextBox();
             this.nameLabel2 = new System.Windows.Forms.Label();
             this.employeePhotoPB = new System.Windows.Forms.PictureBox();
-            this.dEPARTMENTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cATHEDRABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dEGREELISTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cATHEDRABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEGREELISTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cATHEDRABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).BeginInit();
             this.SuspendLayout();
             // 
             // degreeComboBox2
@@ -70,6 +70,10 @@
             this.degreeComboBox2.TabIndex = 56;
             this.degreeComboBox2.ValueMember = "ID";
             // 
+            // dEGREELISTBindingSource
+            // 
+            this.dEGREELISTBindingSource.DataSource = typeof(EmployeeEf.DEGREELIST);
+            // 
             // cathedraComboBox2
             // 
             this.cathedraComboBox2.DataSource = this.cATHEDRABindingSource;
@@ -81,6 +85,10 @@
             this.cathedraComboBox2.TabIndex = 55;
             this.cathedraComboBox2.ValueMember = "ID";
             // 
+            // cATHEDRABindingSource
+            // 
+            this.cATHEDRABindingSource.DataSource = typeof(EmployeeEf.CATHEDRA);
+            // 
             // departmentComboBox2
             // 
             this.departmentComboBox2.DataSource = this.dEPARTMENTBindingSource;
@@ -91,6 +99,10 @@
             this.departmentComboBox2.Size = new System.Drawing.Size(446, 24);
             this.departmentComboBox2.TabIndex = 54;
             this.departmentComboBox2.ValueMember = "ID";
+            // 
+            // dEPARTMENTBindingSource
+            // 
+            this.dEPARTMENTBindingSource.DataSource = typeof(EmployeeEf.DEPARTMENT);
             // 
             // yearTextBox2
             // 
@@ -242,18 +254,6 @@
             this.employeePhotoPB.TabIndex = 37;
             this.employeePhotoPB.TabStop = false;
             // 
-            // dEPARTMENTBindingSource
-            // 
-            this.dEPARTMENTBindingSource.DataSource = typeof(EmployeeEf.DEPARTMENT);
-            // 
-            // cATHEDRABindingSource
-            // 
-            this.cATHEDRABindingSource.DataSource = typeof(EmployeeEf.CATHEDRA);
-            // 
-            // dEGREELISTBindingSource
-            // 
-            this.dEGREELISTBindingSource.DataSource = typeof(EmployeeEf.DEGREELIST);
-            // 
             // EmployeeAddingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,13 +279,15 @@
             this.Controls.Add(this.nameTextBox2);
             this.Controls.Add(this.nameLabel2);
             this.Controls.Add(this.employeePhotoPB);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EmployeeAddingForm";
-            this.Text = "EmployeeAddingForm";
+            this.ShowIcon = false;
+            this.Text = "Додати співробітника";
             this.Load += new System.EventHandler(this.EmployeeAddingForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cATHEDRABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEGREELISTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cATHEDRABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEPARTMENTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeePhotoPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
